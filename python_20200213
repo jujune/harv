@@ -1,0 +1,771 @@
+# 1. 아이디와 이름을 입력받아 프린트
+
+# 아이디가 root인 홍길동님이 로그인되었습니다.
+
+​
+
+# id1 = 'root'
+
+# name1 = '홍길동'
+
+#
+
+# id2 = input('아이디? ')
+
+# name2 = input('이름? ')
+
+#
+
+# if (id1 == id2 and name1 == name2):
+
+# print('홍길동 님이 로그인되었습니다')
+
+​
+
+​
+
+# 2. 두 수를 입력받아서 4칙연산을 하여 프린트
+
+# 숫자1 : 33
+
+# 숫자2: 7
+
+# -----------------------------------
+
+# 두 수의 합은 40
+
+# 두 수의 차는
+
+# 두 수의 곱은
+
+# 두 수의 나눗셈은
+
+​
+
+# num1 = input('숫자1을 입력하세요. ')
+
+# num2 = input('숫자2를 입력하세요. ')
+
+#
+
+# num11 = int(num1)
+
+# num22 = int(num2)
+
+#
+
+# print('-------------------')
+
+# print('두 수의 합은 ', num11 + num22)
+
+# print('두 수의 차는 ', num11 - num22)
+
+# print('두 수의 곱은 ', num11 * num22)
+
+# print('두 수의 나눗셈은 ', num11 / num22)
+
+​
+
+​
+
+# 3. 이름과 현재 나이를 입력 받아서 다음과 같이 프린트
+
+# 홍길동님의 10년 후 의 나이는 110세 입니다.
+
+​
+
+name3 = input('이름? ')
+
+age3 = input ('나이? ')
+
+​
+
+age33 = int(age3) + 10
+
+​
+
+from tkinter import messagebox
+
+​
+
+messagebox.showinfo('두둥', '홍길동 님의 10년 후 나이는' + str(age33) + '세 입니다.')
+
+​
+
+​
+
+# 4. 다음과 같이 판별 되도록 프린트 (10000원 기준)
+
+엄마 용돈 주세요: 15000(입력)
+
+-> 엄마 너무 용돈이 많아요.
+
+​
+
+엄마 용돈 주세요: 8000 (입력)
+
+-> 엄마 너무 용돈이 적어요.
+
+​
+
+money = input('엄마 용돈 주세요: ')
+
+​
+
+if int(money) >= 15000:
+
+print('엄마 너무 용돈이 많아요.')
+
+elif int(money) <= 8000:
+
+print('엄마 너무 용돈이 적어요.')
+
+else:
+
+print('엄마 너무 용돈이 적당해요')
+
+​
+
+# 5. 숫자를 입력하여 짝 홀수를 판단해보세요.
+
+​
+
+num5 = int(input('숫자를 입력하세요. '))
+
+​
+
+if num5 % 2 == 0:
+
+print("짝수입니다.")
+
+elif num5 % 2 == 1:
+
+print("홀수입니다.")
+
+else:
+
+print('0입니다')
+
+​
+
+# 6
+
+​
+
+score = int(input('당신의 실적을 입력하세요! '))
+
+bonus = str(int(score*1.2)) + '만원'
+
+​
+
+if score >= 1000:
+
+print('축하합니다! 실적을 달성하셨습니다!')
+
+print('당신의 이번달 보너스는 ' + bonus + ' 입니다.')
+
+else:
+
+print("분발하세요ㅡㅡ")
+
+​
+
+# 7
+
+​
+
+missile = input('미사일 이름은? ')
+
+start = input('미사일 시작 값은? ')
+
+km = input('미사일이 움직이는 값은? ')
+
+​
+
+move = float(start) + float(km)
+
+​
+
+print('-----------------------------')
+
+print('슛 미사일이 ', move,'로 이동되었습니다')
+
+​
+
+# 8
+
+​
+
+pay = int(input('금액을 지불하세요. '))
+
+item = 7500
+
+change = pay - item
+
+tax = item * 0.1
+
+print('-----------영수증-----------')
+
+print('받은 돈', str(pay))
+
+print('상품 금액', str(item))
+
+print('부가세', str(int(tax)))
+
+print('거스름 돈', str(change))
+
+​
+
+# 9
+
+​
+
+for x in range(0,100):
+
+for y in range(0,10):
+
+print('★', end=" ")
+
+print()
+
+​
+
+# 10
+
+​
+
+for x in range(1,21):
+
+print(x)
+
+​
+
+for y in range(1,21):
+
+print(y, end=" ")
+
+​
+
+# 11
+
+​
+
+for x in range (2, 51, 2):
+
+print(x)
+
+​
+
+# 12
+
+​
+
+count = 0
+
+​
+
+for z in range (1,1001):
+
+if z % 3 == 0:
+
+count = count + 1
+
+else:
+
+pass
+
+print(count)
+
+​
+
+# 13
+
+​
+
+while True:
+
+data = input('먹고 싶은 음식 (종료: x): ')
+
+if data == 'x' or 'X':
+
+print('종료합니다')
+
+break
+
+​
+
+​
+
+# 14
+
+​
+
+food = ['치킨', '떡볶이', '피자', '소고기', '갈비']
+
+​
+
+print(food)
+
+print(food[0], food[-1])
+
+print(food[2])
+
+print(food[2:5])
+
+​
+
+​
+
+# 15
+
+​
+
+portal = []
+
+​
+
+portal.append('네이버')
+
+portal.append('카카오')
+
+portal.append('구글')
+
+portal.append('링크드인')
+
+​
+
+print(portal)
+
+​
+
+​
+
+# 16
+
+​
+
+score = []
+
+sum = 0
+
+i = 0
+
+​
+
+while i < 3:
+
+data = input('학기 총점: ')
+
+score.append(int(data))
+
+sum = sum + score[i]
+
+i = i + 1
+
+print('---------------------')
+
+print('총학기 평균은 ', sum / i, '입니다.')
+
+​
+
+​
+
+# 17
+
+​
+
+while True:
+
+data = int(input('정답을 입력하시오: '))
+
+if data == 77:
+
+print('정답입니다.')
+
+break
+
+else:
+
+print('정답이 아닙니다')
+
+if data < 88:
+
+print('너무 작아요')
+
+if data > 88:
+
+print('너무 커용')
+
+​
+
+​
+
+# 18
+
+​
+
+deposit = int(input('입금액을 입력하세요>> '))
+
+interest = float(input('이자율을 입력하세요>> '))
+
+print('-------------------')
+
+print('1년 후 받게 될 금액은: ', int(deposit*(1+interest)), '입니다')
+
+​
+
+​
+
+# 19
+
+​
+
+info = {'이름':'이주엽', '나이':'30', '혈액형':'O형', '키':'173cm', '몸무게':'75kg'}
+
+print(info.get('몸무게'))
+
+​
+
+​
+
+# 20
+
+​
+
+place = []
+
+​
+
+i = 0
+
+while i < 5:
+
+data = input('가장 좋아하는 장소는? ')
+
+place.append(data)
+
+i = i + 1
+
+print(place)
+
+​
+
+print(len(place))
+
+​
+
+​
+
+for x in range(0,len(place)): #0~4이고, (0,5)
+
+if place[x] == '강남':
+
+del(place[x])
+
+break #브레이크 안쓰면 중간에 x가 비어버려서 문제가 생김
+
+print(place)
+
+​
+
+​
+
+for y in range(0,len(place)): #0~3이고, length 4
+
+if place[y] == '제주도':
+
+place[y] = '제주시'
+
+print(place)
+
+​
+
+​
+
+for z in range (0,len(place)):
+
+print(str(z+1) + '위: ', place[z])
+
+​
+
+​
+
+​
+
+print(0 in range(0, 5)) # 읽기 전용 목록인 튜플임을 증명
+
+for x in range(0, 5):
+
+pass
+
+​
+
+# 20-1
+
+​
+
+location = []
+
+​
+
+for x in range(0,5): #0,1,2,3,4
+
+location.append(input('장소: '))
+
+​
+
+print(location)
+
+​
+
+# 20-2
+
+​
+
+if '강남' in location:
+
+print('강남있음.')
+
+#인덱스가 필요!
+
+index = location.index('강남')
+
+#인덱스를 가지고 del
+
+del location[index]
+
+​
+
+print(location)
+
+​
+
+#or
+
+​
+
+for x in range(0, len(location)):
+
+if(location[x] == '강남')
+
+del location[x] #파괴함수
+
+print('강남을 삭제했습니다')
+
+break
+
+​
+
+​
+
+# 20-3
+
+​
+
+​
+
+import math
+
+​
+
+name = '홍길동'
+
+age = 100.222
+
+print(int(age))
+
+print(math.floor(age)) #floor 버림
+
+print(round(age, 1)) #round 반올림
+
+print('나의 이름은 %s이다' %(name)) #%s는 스트링. 이 자리에 들어올거야
+
+print('나의 이름은 %s이고 나이는 %d' %(name,age)) # %d는 십진수
+
+print('나의 이름은 {0}이고 나이는 {1:0.1f}'.format(name, age))
+
+#{0}는 index부여, 0.1f는 소수 첫째자리까지. # 0번, 1번 , f는 실수 float. #괄호 숫자로 입력 순서 지정
+
+​
+
+​
+
+​
+
+import random
+
+target = random.randint(1, 100) #1~100 중 하나를 생성
+
+​
+
+count = 0 #초기화 변수는 반복문 안에 넣으면 안된다
+
+while True:
+
+count = count + 1
+
+data = int(input('정답을 입력하시오: '))
+
+if data == target:
+
+print('정답입니다.')
+
+print('당신의 시도 횟수: ', count, '회')
+
+break
+
+else:
+
+print('정답이 아닙니다')
+
+if data < target:
+
+print('너무 작아요')
+
+if data > target:
+
+print('너무 커용')
+
+​
+
+​
+
+​
+
+​
+
+import random
+
+​
+
+jumsu = []
+
+​
+
+random.seed(20) #난수 값 안바뀌게 고정?
+
+for x in range (0,10):
+
+jumsu.append(random.randint(1, 10))
+
+​
+
+print(jumsu)
+
+​
+
+count = jumsu.count(516) # 리스트 안에 516이 몇 개나 들어있는가
+
+print(count)
+
+​
+
+​
+
+count2 = 0
+
+for x in jumsu:
+
+if x == 5:
+
+count2 = count2 + 1
+
+print(count2)
+
+​
+
+​
+
+for x in range(0, len(jumsu)):
+
+if jumsu[x] == 5: # 455가 들어가는 위치, 인덱스값
+
+print('위치는: ', x)
+
+​
+
+​
+
+​
+
+​
+
+​
+
+import random
+
+roddo = []
+
+count = 0
+
+​
+
+​
+
+while True:
+
+value = int(random.randint(1, 45))
+
+print("값:",value)
+
+if value in roddo:
+
+print('중복.')
+
+continue
+
+roddo.append(value)
+
+print(len(roddo))
+
+if 6 <= len(roddo) : break
+
+​
+
+​
+
+print(roddo)
+
+​
+
+​
+
+​
+
+​
+
+# 가위바위보 게임
+
+​
+
+import random
+
+​
+
+while True:
+
+me = input("무엇을 내시겠습니까? (종료는 x) ")
+
+com = random.choice(['가위', '바위', '보'])
+
+​
+
+print('컴퓨터 왈:', com)
+
+if me == com:
+
+print('비겼습니다')
+
+elif (me == '가위' and com == '보') or (me == "바위" and com == '가위') or (me == '보' and com =='바위'):
+
+print('이겼습니다!!!')
+
+elif me == 'x' or me == 'X': # me in ['x','X']
+
+print('게임을 종료합니다')
+
+break
+
+else:
+
+print('졌습니다ㅠㅠ')
