@@ -1,0 +1,232 @@
+
+# 극장 예매 시스템
+
+# 1. 화면을 만든다.
+
+# --0이 10개 들어간 리스트 필요!
+
+​
+
+#print(seat) #확인용
+
+seat = [0] * 10 # 요러면 0이 리스트에 10개 들어감
+
+count = 0
+
+pay = 0
+
+name = input('성함을 입력해주세요: ')
+
+​
+
+while True:
+
+#자리 번호 프린트
+
+print('--------------------------------------')
+
+# Alt + 화살표 = 해당 줄 위치 바꾸기
+
+# Ctrl + Alt + 아래 화살표 = 해당 줄 아래로 복사
+
+for x in range(1, len(seat)+1):
+
+print(x, end=" ")
+
+print('\n--------------------------------------') # 역슬러시 + n = 줄바꿈
+
+# 자리 예약 상태 프린트 (0=예약x, 1=예약o)
+
+for x in seat:
+
+print(x, end=" ")
+
+print('\n--------------------------------------')
+
+choice = int(input('원하는 좌석 번호 입력(종료: 0)>> '))-1
+
+if choice == -1:
+
+print()
+
+print("예매 프로그램을 종료합니다.")
+
+break
+
+# 입력값은 리스트의 index로 사용될 예정
+
+# index = 좌석번호
+
+print(choice, '를 선택하셨군요!')
+
+print()
+
+​
+
+# 이미 예매처리가 된 경우, 불가능하다고 처리
+
+if seat[choice] == 1:
+
+print('이미 예매가 완료된 좌석입니다.')
+
+print('다른 좌석을 선택해주세요')
+
+else:
+
+# 예매처리가 안된 경우
+
+# 입력 받은 좌석 번호로 예매처리
+
+seat[choice] = 1
+
+count = count + 1 # for문이나 count함수로 가능
+
+​
+
+print('예매 처리를 완료하였습니다.')
+
+print(name, '님의 예매 확인 영수증입니다.')
+
+print('--------------------------------')
+
+print('예매된 좌석 번호는')
+
+for x in range(0, len(seat)):
+
+if seat[x] == 1:
+
+print(x + 1, '번', end=" ")
+
+print()
+
+print('전체 예매된 좌석 수는', count, '좌석')
+
+print('결제 금액은', count * 10000, '원')
+
+print()
+
+​
+
+​
+
+​
+
+# 자판기 만들기
+
+​
+
+# 포카리, 코카콜라, 레쓰비, 초코송이, 빼빼로, 다이제, 자일리톨
+
+# 800, 800, 600, 900, 1000, 1500, 1000
+
+# 7, 6, 4, 5, 7, 0, 8
+
+​
+
+menu = ['포카리', '코카콜라', '레쓰비', '초코송이', '빼빼로', '다이제', '자일리톨']
+
+price = [800, 800, 600, 900, 1000, 1500, 1000]
+
+stock = [7, 6, 4, 5, 7, 0, 8]
+
+total = 0
+
+​
+
+while True:
+
+​
+
+while True:
+
+print('-------------------------------------------------')
+
+for x in menu:
+
+print(x, end=" ")
+
+print()
+
+for x in stock:
+
+print(" ", x, end=" ")
+
+print()
+
+print('-------------------------------------------------')
+
+choice = input('메뉴를 선택하세요>> ')
+
+index = menu.index(choice)
+
+if menu[index] == choice and stock[index] > 0:
+
+print(price[index], '원을 지불하세요')
+
+break
+
+elif menu[index] == choice and stock[index] == 0:
+
+print('품절입니다. 다시 선택해주세요.')
+
+​
+
+pay = input('결제 수단을 결정하세요. 카드 or 현금>> ')
+
+​
+
+if pay == '카드':
+
+card = input('카드를 태그하시겠습니까? (Y/N)')
+
+total = total + price[index]
+
+if card == 'y' or card == 'Y':
+
+pass
+
+else:
+
+print('결제가 취소되었습니다. 다시 진행해주세요.')
+
+print()
+
+continue
+
+elif pay == '현금':
+
+while True:
+
+if total < price[index]:
+
+cash = input('현금을 넣어주세요. 취소는 X : ')
+
+if cash == 'x' or cash == 'X':
+
+print()
+
+break
+
+else:
+
+total = total + int(cash)
+
+print('현재금액: ', total, '원')
+
+elif total >= price[index]:
+
+break
+
+​
+
+print('-----------------------------------')
+
+print('구매 상품 ', menu[index], price[index], '원')
+
+print('지불 금액 ', total, '원')
+
+print('거스름돈', total - price[index], '원')
+
+print('-----------------------------------')
+
+stock[index] = stock[index] - 1
