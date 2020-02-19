@@ -1,0 +1,884 @@
+﻿
+
+
+package 변수복습;
+
+
+import javax.swing.JOptionPane;
+
+
+public class 기본입출력 {
+
+
+public static void main(String[] args) {
+
+// 당신이 좋아하는 음식은?
+
+// 입력을 받을 때는 무조건 String으로 처리한다. (어떤걸 입력할지 모르기 때문에)
+
+String name = JOptionPane.showInputDialog("당신이 좋아하는 음식은?");
+
+// 당신이 좋아하는 음식은 짜장면이군요?
+
+System.out.println("당신이 좋아하는 음식은 " + name + "이군요!");
+
+
+String age = JOptionPane.showInputDialog("나이를 입력?"); //모듈.함수
+
+// String -> int처리
+
+int age2 = Integer.parseInt(age); //"100"=>100 //분석해서 숫자로 바꿀 수 있으면 바꿔주렴~
+
+System.out.println("내년의 내 나이는 " + (age2 + 1) + "세");
+
+
+
+}
+
+
+}
+
+
+
+
+
+
+package 변수복습;
+
+
+import javax.swing.JOptionPane;
+
+
+public class 기본입출력1 {
+
+
+public static void main(String[] args) {
+
+
+String age = JOptionPane.showInputDialog("나이 입력");
+
+int age2 = Integer.parseInt(age);
+
+System.out.println("당신의 내년 나이는 " + (age2 + 1) + "입니다.");
+
+
+String height = JOptionPane.showInputDialog("키 입력");
+
+double height2 = Double.parseDouble(height);
+
+System.out.println("내년 키는 " + (height2 + 5) + "cm");
+
+
+// 아침을 먹었나요? true
+
+String food = JOptionPane.showInputDialog("아침을 머겅ㅆ나요?");//true
+
+boolean food2 = Boolean.parseBoolean(food);
+
+System.out.println("아침을 먹었는지 여부 " + food2);
+
+
+if(food2 == true) {
+
+System.out.println("배가 부르시겠군요.");
+
+} else {
+
+System.out.println("배가 고프겠어요.");
+
+}
+
+
+
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+package 변수복습;
+
+
+import javax.swing.JOptionPane;
+
+
+public class 기본입출력2 {
+
+
+public static void main(String[] args) {
+
+String name = JOptionPane.showInputDialog("당신이 좋아하는 영화제목은? "); //입력하는 창 띄우기
+
+String actor = JOptionPane.showInputDialog("영화의 출연자는? ");
+
+String grade = JOptionPane.showInputDialog("영화의 등급은? ");
+
+int grade2 = Integer.parseInt(grade); // 스트링을 각각의 변수 형태로 판단 및 재정의
+
+String score = JOptionPane.showInputDialog("영화의 평점은? ");
+
+double score2 = Double.parseDouble(score);
+
+String year = JOptionPane.showInputDialog("영화의 발표년도는? ");
+
+int year2 = Integer.parseInt(year);
+
+String exp = JOptionPane.showInputDialog("당신은 이 영화를 보셨나요? ");
+
+boolean exp2 = Boolean.parseBoolean(exp);
+
+String age = JOptionPane.showInputDialog("당신의 나이는? ");
+
+int age2 = Integer.parseInt(age);
+
+System.out.println("------------------------------------");
+
+System.out.println("영화 제목 : " + name);
+
+System.out.println("출연자: " + actor);
+
+System.out.println("등급: " + grade);
+
+if (score2 > 5.5) { // 평점보다 높으면 높은 점수
+
+System.out.println("평점: " + score + "(고)");
+
+} else {
+
+System.out.println("평점: " + score + "(저)");
+
+}
+
+System.out.println("상영기간: " + (2020 - year2 + 1) + "년째 상영 중");
+
+System.out.println("영화를 본 후: ");
+
+if (exp2 == true) {
+
+String review = JOptionPane.showInputDialog("영화 후기>> ");
+
+System.out.println("영화를 본 후: " + review);
+
+} else {
+
+System.out.println("영화를 예매하세요!");
+
+}
+
+if (age2 >= grade2) {
+
+System.out.println("영화를 볼 수 있는 나이입니다.");
+
+} else {
+
+System.out.println("영화를 볼 수 없는 나이입니다.");
+
+
+}
+
+}
+
+}
+
+
+
+
+
+
+
+package 변수복습;
+
+
+public class 기본형변수 {
+
+
+public static void main(String[] args) {
+
+// 주석, comment, 설명
+
+// 컨트롤 + / : 자동주석 설정, 해제
+
+/* 주석 시작
+
+*
+
+* 여러줄 주석 (중간줄 별은 빠져도 됨)
+
+*
+
+*
+
+*/ // 주석 닫기
+
+System.out.println("모니터에 출력");
+
+// 기본형 4가지 - 정수, 실수, 문자, 논리
+
+// 자바는 변수를 할당할 떄 데이터가 들ㅇ어가는 타입과 크기를 결정
+
+// 변수 앞에 타입에 해당하는 키워드를 써준다.
+
+// 1 byte(-128~127) -> int(4byte, +-21억) -> long(8byte)
+
+long money = 22L;
+
+int num; // 선언 => 정수가 들어갈 공간을 할당! (아직 값은 안 넣음)
+
+// 쓰레기 값이 들어있는 상태
+
+// 초기화하지 않은 상태
+
+num = 0;
+
+
+// float weight = 45.5f; / 45.50000000 소수점 8자리.
+
+double height = 185.5; // 16자리. 초기 값을 알면 바로 넣고, 아니면 num처럼 나중에 넣고.
+
+char level = 'A'; // 잘 사용하지 않음. 하지만 string보다 용량이 적음. 2바이트.
+
+
+//자동완성(Ctrl + Spacebar)
+
+boolean coffee = true; // false
+
+
+// 기본형은 아닌데 너무 많이 사용되므로, 기본형처럼 간단히 쓸 수 있게 만들어 놓음.
+
+// 문자열(String) => 쌍따옴표 사용 (")
+
+String name = "홍길동";
+
+
+System.out.println("---------------------");
+
+System.out.println("내가 좋아하는 숫자는 " + num);
+
+System.out.println("내 키는 " + height);
+
+System.out.println("내 등급은 " + coffee);
+
+System.out.println("내 이름은 " + name);
+
+
+int wallet = 20000;
+
+double weight = 33.3;
+
+char score = 'B';
+
+boolean bus = false;
+
+String color = "초록색";
+
+
+System.out.println("내 지갑에 들어있는 돈: " + wallet);
+
+System.out.println("내 몸무게: " + weight );
+
+System.out.println("내 컴퓨터 성적: " + score);
+
+System.out.println("나는 버스를 타고 왔나요?: " + bus);
+
+System.out.println("--------------------------");
+
+System.out.println("내가 탔던 지하철 색은?: " + color);
+
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+package 연산자;
+
+
+public class 연산자종류 {
+
+//연산자 종류
+
+//1. 대입: =
+
+//2. 결합: + (타입이 달라도 결합 가능)
+
+//3. 산술: + - *(에스테리크) /(슬러시) %(나머지)
+
+//4. 비교: == !=(같지 않음) >=
+
+//5. 논리: 조건이 여러 개인 경우,
+
+//&&(앤퍼센터, and연산자), ||(버티컬 바, or연산자)
+
+//!(not 연산자):
+
+// x = y + z * (a + b ) - d, 마지막 연산은 = 이다!
+
+
+int sum = 44;
+
+int count = 3;
+
+int avg = sum / count; //int와 int의 계산은 무조건 int
+
+
+//계산되는 데이터 중 하나라도 실수가 있으면 무조건 실수!
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+package 연산자;
+
+
+public class 연산자종류1 {
+
+
+public static void main(String[] args) {
+
+//연산자 종류
+
+//1. 대입: =
+
+//2. 결합: + (타입이 달라도 결합 가능)
+
+//3. 산술: + - *(에스테리크) /(슬러시) %(나머지)
+
+//4. 비교: == !=(같지 않음) >=
+
+//5. 논리: 조건이 여러 개인 경우,
+
+//&&(앤퍼센터, and연산자), ||(버티컬 바, or연산자)
+
+//!(not 연산자):
+
+// x = y + z * (a + b ) - d, 마지막 연산은 = 이다!
+
+
+int sum = 44;
+
+int count = 3;
+
+int avg = sum / count;
+
+//int와 int의 계산은 무조건 int
+
+//계산되는 데이터 중 하나라도 실수가 있으면 무조건 실수!
+
+System.out.println(avg);
+
+
+int sum2 = 44;
+
+int count2 = 3;
+
+double avg2 = sum2 / count2; //연산한 결과를 왼쪽에 넣어버리는 과정이라, 정수 나누기 정수로 14.0이 좌항으로 넘어감
+
+System.out.println(avg2);
+
+
+int sum3 = 44;
+
+int count3 = 3;
+
+double avg3 = (double)sum3 / count3;
+
+System.out.println(avg3);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+package 연산자;
+
+
+import javax.swing.JOptionPane;
+
+
+public class 연산자종류2 {
+
+
+public static void main(String[] args) {
+
+//총 가격을 입력 받으세요.
+
+String price = JOptionPane.showInputDialog("총 가격?");
+
+int price2 = Integer.parseInt(price);
+
+
+// 반복문: 초기값, 조건식, 증감식
+
+// 0~9
+
+for (int i = 0; i < 10; i++) { // 0부터 시작할게 초기값, i++: 1씩 증가할것, 10보다 작다면.
+
+System.out.println("여기가 끝");
+
+}
+
+
+//총 인원수를 입력 받으세요.
+
+
+String num = JOptionPane.showInputDialog("총 인원 수?");
+
+int num2 = Integer.parseInt(num);
+
+//한 명당 얼마씩 내야하는가?(소수점)
+
+double ave = (double)price2 / num2;
+
+System.out.println("1명 당 " + ave + "원 내야함");
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+package 윈도우;
+
+
+import java.util.Date;
+
+import java.util.Scanner;
+
+
+public class 문제 {
+
+
+public static void main(String[] args) {
+
+
+// #1
+
+System.out.println("-----------나의 현금 잔고-----------");
+
+Scanner scan = new Scanner(System.in);
+
+System.out.print("현재 당신이 가지고 있는 돈은? ");
+
+int money = scan.nextInt();
+
+System.out.print("내일 당신이 가지게 될 돈은? ");
+
+int money1 = scan.nextInt();
+
+System.out.println("-------------------------------");
+
+System.out.println("내가 내일 가지게 될 돈의 총액은 " + (money + money1));
+
+System.out.println();
+
+
+// #2
+
+System.out.println("<< 여행정보 >>");
+
+System.out.println("----------------------");
+
+Scanner sc = new Scanner(System.in);
+
+System.out.print("- 여행지 : ");
+
+String place = sc.next();
+
+System.out.print("- 경비 : ");
+
+int cost = sc.nextInt();
+
+System.out.print("- 할인율 : ");
+
+double rate = sc.nextDouble();
+
+System.out.println("- 실제 경비 : " + (cost * (1-rate)));
+
+System.out.println("----------------------");
+
+System.out.println("=> 12월 중순에 갔을 때 가격");
+
+System.out.println();
+
+
+
+//#3
+
+Scanner food = new Scanner(System.in);
+
+System.out.print("음식점 총 계산 금액: ");
+
+int pay = food.nextInt();
+
+System.out.print("함께 먹은 사람 인원 수: ");
+
+double num = food.nextDouble();
+
+System.out.println("----------------------");
+
+System.out.println("각자 내야할 돈: " + (pay/num));
+
+System.out.println();
+
+
+
+//#4
+
+Scanner coffee = new Scanner(System.in);
+
+System.out.print("커피 값은? ");
+
+int pay1 = coffee.nextInt();
+
+System.out.print("인원 수는? ");
+
+int num1 = coffee.nextInt();
+
+System.out.println();
+
+
+Date today = new Date();
+
+int hour = today.getHours();
+
+System.out.println("현재 시각은 " + hour + "시 입니다.");
+
+if (hour < 22) {
+
+System.out.println("내야할 금액은 " + (pay1*num1) + "원 입니다.");
+
+} else {
+
+System.out.println("내야할 금액은 " + ((pay1*num1)-5000) + "원 입니다.");
+
+}
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+package 윈도우;
+
+
+import java.util.Date;
+
+import java.util.Random;
+
+import java.util.Scanner;
+
+
+public class 부품을써보자 {
+
+
+public static void main(String[] args) {
+
+//날짜, 시간 구하는 것.
+
+Date d1 = new Date(); //new 치고 ctrl+space
+
+int hour = d1.getHours(); // deprecated 굉장히 올드한 명령어. 앞으로 없어지거나 새로운 명령어 나올 수 있음
+
+System.out.print(hour + "시 ");
+
+int min = d1.getMinutes();
+
+System.out.print(min + "분 ");
+
+int sec = d1.getSeconds();
+
+System.out.println(sec + "초 ");
+
+
+int year = d1.getYear();
+
+System.out.println("올해는 " + (year+1900) + '년');
+
+int month = d1.getMonth();
+
+System.out.println("이번 달은 " + (month+1)+ '월');
+
+int date = d1.getDate();
+
+System.out.println("오늘은 " + date + '일');
+
+int day = d1.getDay();
+
+System.out.println("오늘은 " + day + "요일");
+
+//0: 일~ 6:토
+
+
+//랜덤
+
+Random r = new Random(); //괄호 안에 들어가는 숫자는 seed값
+
+int num = r.nextInt(46); //0~45
+
+System.out.println(num);
+
+
+// 콘솔에서 입력해서 자동으로 타입을 바꾸어주는 기능
+
+Scanner sc = new Scanner(System.in); //키보드로 입력받겠다는 system.in. 콘솔에서 입력
+
+System.out.print("이름을 입력>> ");
+
+String name = sc.next();
+
+System.out.println("당신의 이름은 " + name);
+
+System.out.print("나이를 입력>> ");
+
+int age = sc.nextInt(); //string -> int 변환
+
+System.out.println("내년 나이는 " + (age+1));
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+package 제어문;
+
+
+import javax.swing.JOptionPane;
+
+
+public class 조건문01 {
+
+
+public static void main(String[] args) {
+
+int num = 100;
+
+char gender = '여';
+
+
+if (num >= 15 && gender =='남') {
+
+System.out.println("관람가능");
+
+} else {
+
+System.out.println("관람불가능");
+
+}
+
+
+
+//#1
+
+int id = 1111;
+
+int pw = 2222;
+
+if (id == 1111 && pw == 2222) {
+
+System.out.println("로그인 되었습니다.");
+
+} else {
+
+System.out.println("로그인이 실패하였습니다.");
+
+}
+
+
+//#2
+
+String id2 = JOptionPane.showInputDialog("ID를 입력하시오");
+
+int id3 = Integer.parseInt(id2);
+
+String pw2 = JOptionPane.showInputDialog("비밀번호를 입력하시오.");
+
+int pw3 = Integer.parseInt(pw2);
+
+
+if (id == id3 && pw == pw3) {
+
+System.out.println("로그인 되었습니다.");
+
+} else {
+
+System.out.println("로그인이 실패하였습니다.");
+
+}
+
+
+//#3
+
+String day = JOptionPane.showInputDialog("요일을 선택하시오");
+
+int day2 = Integer.parseInt(day);
+
+if (day2 == 1) {
+
+System.out.println("열심히 공부합시다.");
+
+} else {
+
+System.out.println("열심히 놀아봅시다.");
+
+}
+
+
+//#4
+
+String choice = JOptionPane.showInputDialog("오늘의 날씨는? 1)비 2)흐림 3)눈 4)화창");
+
+int choice2 = Integer.parseInt(choice);
+
+if (choice2 == 1 || choice2 ==3) {
+
+JOptionPane.showMessageDialog(null, "지하철 타고가장"); //int 초기값 0과 같은, 비워져있는 상태 null
+
+} else if (choice2 == 2) { // 조건이 또 있을 경우에는 else if. 조건 꼭 써줘야함
+
+JOptionPane.showMessageDialog(null, "버스 타고가장");
+
+} else {
+
+JOptionPane.showMessageDialog(null, "걸어가장");
+
+}
+
+
+//#5
+
+String today = JOptionPane.showInputDialog("오늘은 무슨 요일인가요?");
+
+int today2 = Integer.parseInt(today);
+
+if (today2 == 1) {;
+
+System.out.println("하체입니다.");
+
+} else if (today2 == 2) {
+
+System.out.println("어깨입니다.");
+
+} else if (today2 == 3) {
+
+System.out.println("등입니다.");
+
+} else if (today2 == 4) {
+
+System.out.println("가슴입니다.");
+
+} else if (today2 == 5) {
+
+System.out.println("복근입니다.");
+
+} else if (today2 == 6) {
+
+System.out.println("팔입니다.");
+
+} else {
+
+System.out.println("유산소입니다.");
+
+}
+
+
+//#6
+
+String now = JOptionPane.showInputDialog("지금은 몇시입니까?");
+
+int now2 = Integer.parseInt(now);
+
+if (now2 < 11) {
+
+System.out.println("굿모닝");
+
+} else if (now2 >= 11 && now2 < 16) {
+
+System.out.println("굿애프터눈");
+
+} else {
+
+System.out.println("굿이브닝");
+
+}
+
+
+//#7
+
+String width = JOptionPane.showInputDialog("가로 길이를 입력하시오.");
+
+int width2 = Integer.parseInt(width);
+
+String height = JOptionPane.showInputDialog("세로 길이를 입력하시오.");
+
+int height2 = Integer.parseInt(height);
+
+if (width2 * height2 >= 50) {
+
+System.out.println("너무 넓군요");
+
+} else {
+
+System.out.println("너무 좁군요");
+
+}
+
+
+
+
+}
+
+
+}
+
+
+﻿
