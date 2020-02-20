@@ -1,0 +1,532 @@
+﻿
+
+package 제어문;
+
+
+import java.util.Scanner;
+
+
+public class 입력테스트 {
+
+
+public static void main(String[] args) {
+
+//입력용 부품(class)를 복사해옵니다.
+
+Scanner sc = new Scanner(System.in);
+
+//오늘의 날씨는? 화창 입력!
+
+System.out.print("오늘의 날씨는? ");
+
+String weather = sc.next(); //노란색 밑줄 = 뭔가 문제가 있음을 말해줌
+
+System.out.println("아하!" + weather + "하군요!");
+
+
+//몇도 인가요? 1
+
+System.out.print("몇도 인가요? ");
+
+int temp = sc.nextInt();
+
+
+if (temp >= 0) {
+
+System.out.println("봄이 왔어요!!");
+
+} else {
+
+System.out.println("봄이 안왔어요ㅠㅠ");
+
+}
+
+
+sc.close(); //스캐너는 항상 닫아주어야함. system.in스트림을 닫는것. resource leak를 막음.
+
+
+
+}
+
+
+}
+
+
+
+
+
+
+package 제어문;
+
+
+import java.util.Scanner; // 기능의 위치가 어디서 오는지 알랴줌
+
+
+import javax.swing.JOptionPane;
+
+
+public class 입력테스트2 {
+
+
+public static void main(String[] args) {
+
+//1. 입력받는 클래스 필요
+
+//ctrl + shift + o = 자동import
+
+Scanner sc = new Scanner(System.in);
+
+//import안하면 java.util.Scanner로 길어짐
+
+
+while (true) {
+
+System.out.print("입력(종료x)>> ");
+
+String data = sc.next();
+
+//값을 비교하는 경우 비교 연산자는 기본데이터 타입만 쓸 수 있다.
+
+//기본데이터 타입 : 정수, 실수, 문자, 논리(boolean)
+
+if (data.equals("x")) { //equals 뒤에 오는게 data와 같냐 물어보는 함수, 결과는 true/false
+
+JOptionPane.showMessageDialog(null,"시스템 종료");
+
+break; //break를 포함하고 있는 반복문을 끝내줌
+
+}
+
+System.out.println("당신의 입력 데이터는 " + data);
+
+}
+
+//2. 콘솔에 프린트
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+package 제어문;
+
+
+import java.util.Random;
+
+import java.util.Scanner;
+
+
+public class 입력테스트3 { // ctrl + shift + f 코드 정리 (o?)
+
+
+public static void main(String[] args) {
+
+// 랜덤한 int값을 발생시켜보자
+
+// 랜덤한 값 발생시킬 수 있는 Random 클래스 필요
+
+Random r = new Random();
+
+int count = 0;
+
+int target = r.nextInt(10); // 0~9
+
+int num = 55;
+
+Scanner sc = new Scanner(System.in);
+
+
+while (true) {
+
+// count++; //증감 연산자, count = count + 1 (1씩 증가함!)
+
+System.out.println("당신이 생각하는 숫자는(종료:-1)>> ");
+
+int think = sc.nextInt();
+
+if (think == -1) {
+
+System.out.println("종료합네다");
+
+break;
+
+// System.exit(0); 는 프로그램을 완전히 종료함
+
+}
+
+count++;
+
+if (target == think) {
+
+System.out.println("정답입니다. 축하드립니다");
+
+System.out.println("총 시도 횟수: " + count);
+
+System.out.println("총 실패 횟수: " + (count - 1));
+
+System.out.println("시스템 종료");
+
+break;
+
+} else {
+
+System.out.println("틀렸습니다.");
+
+// 힌트를 주세요
+
+if (think >= target) {
+
+System.out.println("너무 큽니다.");
+
+} else {
+
+System.out.println("너무 작습니다.");
+
+}
+
+System.out.println("총 시도 횟수: " + count);
+
+System.out.println("총 실패 횟수: " + count);
+
+} // else
+
+} // while
+
+sc.close();
+
+}// main
+
+
+} // class
+
+
+
+
+
+
+
+package 윈도우;
+
+
+import javax.swing.JFrame;
+
+import javax.swing.JButton;
+
+import java.awt.BorderLayout;
+
+import java.awt.event.ActionListener;
+
+import java.awt.event.ActionEvent;
+
+import java.awt.Font;
+
+import java.awt.Color;
+
+
+public class 그래픽연습 {
+
+
+public static void main(String[] args) {
+
+//1, 프레임에 해당한느 클래스 필요
+
+JFrame f = new JFrame();
+
+f.setSize(500, 500);
+
+
+JButton btnNewButton = new JButton("\uB098\uB97C \uB20C\uB7EC\uC694");
+
+btnNewButton.setBackground(Color.ORANGE);
+
+btnNewButton.setForeground(Color.WHITE);
+
+btnNewButton.setFont(new Font("맑은 고딕", Font.ITALIC, 15));
+
+btnNewButton.addActionListener(new ActionListener() {
+
+public void actionPerformed(ActionEvent e) {
+
+}
+
+});
+
+f.getContentPane().add(btnNewButton, BorderLayout.CENTER);
+
+
+JButton btnNewButton_1 = new JButton("\uB098\uB294 \uC704\uC5D0 \uC788\uB294 \uBC84\uD2BC");
+
+btnNewButton_1.setBackground(Color.ORANGE);
+
+btnNewButton_1.setForeground(Color.WHITE);
+
+btnNewButton_1.setFont(new Font("맑은 고딕", Font.ITALIC, 15));
+
+btnNewButton_1.addActionListener(new ActionListener() {
+
+public void actionPerformed(ActionEvent e) {
+
+}
+
+});
+
+f.getContentPane().add(btnNewButton_1, BorderLayout.NORTH);
+
+
+JButton btnNewButton_2 = new JButton("\uB098\uB294 \uC67C\uCABD \uBC9D\uC774\uC57C");
+
+btnNewButton_2.setBackground(Color.ORANGE);
+
+btnNewButton_2.setForeground(Color.WHITE);
+
+btnNewButton_2.setFont(new Font("맑은 고딕", Font.ITALIC, 15));
+
+f.getContentPane().add(btnNewButton_2, BorderLayout.WEST);
+
+
+JButton btnNewButton_3 = new JButton("\uB098\uB294 \uC624\uB978\uCABD \uBC9D\uC774\uC57C");
+
+btnNewButton_3.setBackground(Color.ORANGE);
+
+btnNewButton_3.setForeground(Color.WHITE);
+
+btnNewButton_3.setFont(new Font("맑은 고딕", Font.ITALIC, 15));
+
+f.getContentPane().add(btnNewButton_3, BorderLayout.EAST);
+
+
+JButton btnNewButton_4 = new JButton("Bottom button");
+
+btnNewButton_4.setBackground(Color.ORANGE);
+
+btnNewButton_4.setForeground(Color.WHITE);
+
+btnNewButton_4.setFont(new Font("맑은 고딕", Font.ITALIC, 15));
+
+f.getContentPane().add(btnNewButton_4, BorderLayout.SOUTH);
+
+
+
+
+
+f.setVisible(true);
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+package 윈도우;
+
+
+import javax.swing.JFrame;
+
+import javax.swing.JButton;
+
+import java.awt.BorderLayout;
+
+import java.awt.event.ActionListener;
+
+import java.util.Random;
+
+import java.awt.event.ActionEvent;
+
+import javax.swing.ImageIcon;
+
+import java.awt.Color;
+
+import javax.swing.JLabel;
+
+import javax.swing.JOptionPane;
+
+
+import java.awt.Font;
+
+
+public class 가위바위보게임3 {
+
+/**
+
+* @wbp.nonvisual location=506,239
+
+*/
+
+private static final JButton button = new JButton("New button");
+
+
+public static void main(String[] args) {
+
+//1, 프레임에 해당한느 클래스 필요
+
+JFrame f = new JFrame();
+
+f.setSize(811, 509);
+
+JLabel result = new JLabel("\uAC8C\uC784 \uACB0\uACFC \uB098\uD0C0\uB0A0 \uC790\uB9AC");
+
+
+JButton btnNewButton = new JButton("");
+
+btnNewButton.setForeground(Color.WHITE);
+
+btnNewButton.setBackground(Color.white);
+
+btnNewButton.setIcon(new ImageIcon("E:\\jy\\java_project\\data03\\\uAC00\uC704.png"));
+
+btnNewButton.addActionListener(new ActionListener() {
+
+public void actionPerformed(ActionEvent e) {
+
+//result.setText("가위를 눌렀음");
+
+//JOptionPane.showMessageDialog(null, "가위를 눌렀음");
+
+//컴퓨터가 내게 함.
+
+//나와 컴퓨터 비교해서 승패 확인
+
+Random r = new Random();
+
+int com = r.nextInt(3);
+
+int me = 0; ////질문
+
+if (me == com) {
+
+result.setText("비김");
+
+} else if ((me == 0 && com == 2) || (me == 1 && com == 0) || (me == 2 && com == 1)) {
+
+result.setText("내가 이김");
+
+} else if ((me == 0 && com == 1) || (me == 1 && com == 2) || (me == 2 && com == 0)) {
+
+result.setText("내가 졌음");
+
+}
+
+f.setTitle("가위 바위 보 게임"); //내가 이긴 횟수, 컴터 이긴 횟수, 승률+
+
+}
+
+});
+
+f.getContentPane().add(btnNewButton, BorderLayout.WEST);
+
+
+JButton btnNewButton_1 = new JButton("");
+
+btnNewButton_1.setBackground(Color.RED);
+
+btnNewButton_1.setForeground(Color.WHITE);
+
+btnNewButton_1.setIcon(new ImageIcon("E:\\jy\\java_project\\data03\\\uBC14\uC704.png"));
+
+btnNewButton_1.addActionListener(new ActionListener() {
+
+public void actionPerformed(ActionEvent e) {
+
+//result.setText("바위를 눌렀음");
+
+Random r = new Random();
+
+int com = r.nextInt(3);
+
+int me = 1;
+
+if (me == com) {
+
+result.setText("비김");
+
+} else if ((me == 0 && com == 2) || (me == 1 && com == 0) || (me == 2 && com == 1)) {
+
+result.setText("내가 이김");
+
+} else if ((me == 0 && com == 1) || (me == 1 && com == 2) || (me == 2 && com == 0)) {
+
+result.setText("내가 졌음");
+
+}
+
+f.setTitle("가위 바위 보 게임"); //내가 이긴 횟수, 컴터 이긴 횟수, 승률+
+
+
+}
+
+});
+
+f.getContentPane().add(btnNewButton_1, BorderLayout.CENTER);
+
+
+JButton btnNewButton_2 = new JButton("");
+
+btnNewButton_2.addActionListener(new ActionListener() {
+
+public void actionPerformed(ActionEvent e) {
+
+//result.setText("보를 눌렀음");
+
+Random r = new Random();
+
+int com = r.nextInt(3);
+
+int me = 2;
+
+if (me == com) {
+
+result.setText("비김");
+
+} else if ((me == 0 && com == 2) || (me == 1 && com == 0) || (me == 2 && com == 1)) {
+
+result.setText("내가 이김");
+
+} else if ((me == 0 && com == 1) || (me == 1 && com == 2) || (me == 2 && com == 0)) {
+
+result.setText("내가 졌음");
+
+}
+
+f.setTitle("가위 바위 보 게임"); //내가 이긴 횟수, 컴터 이긴 횟수, 승률+
+
+}
+
+});
+
+btnNewButton_2.setBackground(Color.WHITE);
+
+btnNewButton_2.setIcon(new ImageIcon("E:\\jy\\java_project\\data03\\\uBCF4.png"));
+
+f.getContentPane().add(btnNewButton_2, BorderLayout.EAST);
+
+
+
+result.setFont(new Font("굴림", Font.PLAIN, 15));
+
+f.getContentPane().add(result, BorderLayout.SOUTH);
+
+
+
+
+
+f.setVisible(true);
+
+}
+
+
+}
+
+﻿
