@@ -1,0 +1,1414 @@
+
+package 윈도우;
+
+​
+
+import java.awt.Color; // java = 자바 처음 나왔을 때부터 있었던 패키지
+
+import java.awt.Font;
+
+import java.awt.event.ActionEvent;
+
+import java.awt.event.ActionListener;
+
+​
+
+import javax.print.DocFlavor.STRING; //javax = 자바 엑스트라, 나중에 추가된 패키지
+
+import javax.swing.JButton;
+
+import javax.swing.JFrame;
+
+import javax.swing.JLabel;
+
+import javax.swing.JOptionPane;
+
+import javax.swing.JTextArea;
+
+import javax.swing.JTextField;
+
+​
+
+public class 그래픽테스트 {
+
+    private static JTextField t1;
+
+    private static JTextField t2;
+
+​
+
+    public static void main(String[] args) {
+
+        JFrame f = new JFrame();
+
+        f.getContentPane().setBackground(Color.ORANGE);
+
+        f.setSize(478, 407);
+
+        f.getContentPane().setLayout(null);
+
+​
+
+        JButton btnNewButton = new JButton("PUSH");
+
+        btnNewButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                int result = JOptionPane.showConfirmDialog(null, "아침을 먹었나요?");
+
+                if (result == 0) {
+
+                    JOptionPane.showMessageDialog(null, "배가 부르시겠군요.");
+
+                } else if (result == 1) {
+
+                    JOptionPane.showMessageDialog(null, "배가 고프시겠군요.");
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "귀찮으시군요.");
+
+                }
+
+​
+
+            }
+
+        });
+
+        btnNewButton.setBounds(59, 49, 127, 117);
+
+        f.getContentPane().add(btnNewButton);
+
+​
+
+        JLabel lblNewLabel = new JLabel("\uD64D\uAE38\uB3D9\uC758 \uC708\uB3C4\uC6B0");
+
+        lblNewLabel.setFont(new Font("굴림", Font.BOLD, 18));
+
+        lblNewLabel.setBounds(200, 24, 169, 64);
+
+        f.getContentPane().add(lblNewLabel);
+
+​
+
+        JButton btnNewButton_1 = new JButton("\uB098\uB97C \uB20C\uB7EC");
+
+        btnNewButton_1.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                String id = t1.getText();
+
+                String pw = t2.getText();
+
+                if (id.equals("root") && pw.equals("1234")) {
+
+                    JOptionPane.showMessageDialog(null, "로그인 OK");
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "로그인 NOT");
+
+                }
+
+                t1.setText("");
+
+                t2.setText("");
+
+            }
+
+        });
+
+        btnNewButton_1.setBounds(59, 194, 345, 83);
+
+        f.getContentPane().add(btnNewButton_1);
+
+        
+
+        t1 = new JTextField();
+
+        t1.setBounds(198, 82, 176, 32);
+
+        f.getContentPane().add(t1);
+
+        t1.setColumns(10);
+
+        
+
+        t2 = new JTextField();
+
+        t2.setBounds(198, 134, 176, 32);
+
+        f.getContentPane().add(t2);
+
+        t2.setColumns(10);
+
+​
+
+        f.setVisible(true);
+
+    }
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 윈도우;
+
+​
+
+import java.awt.Color;
+
+import java.awt.Font;
+
+import java.awt.event.ActionEvent;
+
+import java.awt.event.ActionListener;
+
+​
+
+import javax.swing.ImageIcon;
+
+import javax.swing.JButton;
+
+import javax.swing.JFrame;
+
+import javax.swing.JLabel;
+
+import javax.swing.JTextField;
+
+​
+
+public class 영화예매 {
+
+    private static JTextField t1;
+
+    private static JTextField t2;
+
+​
+
+    static int jprg = 12000;    
+
+    static int jjh = 8000;  
+
+    static int ilgu = 10000;    
+
+    static int small = 7000;    
+
+    
+
+    public static void main(String[] args) {
+
+        JFrame f = new JFrame();
+
+        f.getContentPane().setBackground(Color.DARK_GRAY);
+
+        f.setSize(651, 475);
+
+        f.getContentPane().setLayout(null);
+
+​
+
+        JLabel img = new JLabel("");
+
+        img.setBackground(new Color(255, 255, 255));
+
+        img.setIcon(new ImageIcon("E:\\jy\\java_project\\data04\\CJ_CGV_logo.jpg"));
+
+​
+
+        JButton btnNewButton = new JButton(
+
+                "\uC9C0\uD478\uB77C\uAE30\uB77C\uB3C4 \uC7A1\uACE0 \uC2F6\uC740 \uC9D0\uC2B9\uB4E4");
+
+        btnNewButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                ImageIcon icon = new ImageIcon("jprg_.jpg");
+
+                img.setIcon(icon);
+
+                t1.setText("30.40%");
+
+                t2.setText(jprg + "원");
+
+            }
+
+        });
+
+        btnNewButton.setForeground(Color.WHITE);
+
+        btnNewButton.setFont(new Font("굴림", Font.BOLD, 12));
+
+        btnNewButton.setBackground(Color.DARK_GRAY);
+
+        btnNewButton.setBounds(12, 363, 132, 63);
+
+        f.getContentPane().add(btnNewButton);
+
+​
+
+        JButton btnNewButton_1 = new JButton("\uC815\uC9C1\uD55C \uD6C4\uBCF4");
+
+        btnNewButton_1.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                ImageIcon icon = new ImageIcon("jjh_.jpg");
+
+                img.setIcon(icon);
+
+                t1.setText("21.62%");
+
+                t2.setText(jjh + "원");
+
+            }
+
+        });
+
+        btnNewButton_1.setForeground(Color.WHITE);
+
+        btnNewButton_1.setFont(new Font("굴림", Font.BOLD, 12));
+
+        btnNewButton_1.setBackground(Color.DARK_GRAY);
+
+        btnNewButton_1.setBounds(170, 363, 132, 63);
+
+        f.getContentPane().add(btnNewButton_1);
+
+​
+
+        JButton btnNewButton_2 = new JButton("1917");
+
+        btnNewButton_2.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                ImageIcon icon = new ImageIcon("1917_.jpg");
+
+                img.setIcon(icon);
+
+                t1.setText("15.50%");
+
+                t2.setText(ilgu + "원");
+
+            }
+
+        });
+
+        btnNewButton_2.setForeground(Color.WHITE);
+
+        btnNewButton_2.setFont(new Font("굴림", Font.BOLD, 12));
+
+        btnNewButton_2.setBackground(Color.DARK_GRAY);
+
+        btnNewButton_2.setBounds(331, 363, 132, 63);
+
+        f.getContentPane().add(btnNewButton_2);
+
+​
+
+        JButton btnNewButton_3 = new JButton("\uC791\uC740 \uC544\uC528\uB4E4");
+
+        btnNewButton_3.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                ImageIcon icon = new ImageIcon("small_.jpg");
+
+                img.setIcon(icon);
+
+                t1.setText("15.34%");
+
+                t2.setText(small + "원");
+
+            }
+
+        });
+
+        btnNewButton_3.setForeground(Color.WHITE);
+
+        btnNewButton_3.setFont(new Font("굴림", Font.BOLD, 12));
+
+        btnNewButton_3.setBackground(Color.DARK_GRAY);
+
+        btnNewButton_3.setBounds(491, 363, 132, 63);
+
+        f.getContentPane().add(btnNewButton_3);
+
+​
+
+        img.setBounds(45, 11, 290, 342);
+
+        f.getContentPane().add(img);
+
+​
+
+        JLabel lblNewLabel = new JLabel("CGV \uC0C1\uC601\uC791");
+
+        lblNewLabel.setBackground(Color.WHITE);
+
+        lblNewLabel.setForeground(Color.WHITE);
+
+        lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 27));
+
+        lblNewLabel.setBounds(406, 0, 265, 79);
+
+        f.getContentPane().add(lblNewLabel);
+
+​
+
+        t1 = new JTextField();
+
+        t1.setColumns(10);
+
+        t1.setBounds(486, 129, 117, 52);
+
+        f.getContentPane().add(t1);
+
+​
+
+        JLabel lblNewLabel_1 = new JLabel("\uC608\uB9E4\uC728");
+
+        lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 14));
+
+        lblNewLabel_1.setForeground(Color.WHITE);
+
+        lblNewLabel_1.setBounds(362, 122, 85, 63);
+
+        f.getContentPane().add(lblNewLabel_1);
+
+        
+
+        JLabel lblNewLabel_1_1 = new JLabel("\uAC00\uACA9");
+
+        lblNewLabel_1_1.setForeground(Color.WHITE);
+
+        lblNewLabel_1_1.setFont(new Font("굴림", Font.BOLD, 14));
+
+        lblNewLabel_1_1.setBounds(362, 222, 85, 63);
+
+        f.getContentPane().add(lblNewLabel_1_1);
+
+        
+
+        t2 = new JTextField();
+
+        t2.setColumns(10);
+
+        t2.setBounds(487, 229, 117, 52);
+
+        f.getContentPane().add(t2);
+
+​
+
+        f.setVisible(true);
+
+​
+
+    }
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 윈도우;
+
+​
+
+import javax.swing.JFrame;
+
+import javax.swing.JButton;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JTextField;
+
+import javax.swing.JLabel;
+
+import javax.swing.ImageIcon;
+
+import java.awt.event.ActionListener;
+
+import java.awt.event.ActionEvent;
+
+import java.awt.Color;
+
+import java.awt.Font;
+
+​
+
+public class 중국집 {
+
+    private static JTextField t1;
+
+    private static JTextField t2;
+
+​
+
+    static int count = 0;
+
+    static int price_jp = 5000;
+
+    static int price_wd = 6000;
+
+    static int price_jj = 7000;
+
+    static int total = 0;
+
+    
+
+    public static void main(String[] args) {
+
+        JFrame f = new JFrame();
+
+        f.getContentPane().setBackground(Color.RED);
+
+        f.getContentPane().setForeground(Color.WHITE);
+
+        f.setSize(706, 540);
+
+        f.getContentPane().setLayout(null);
+
+​
+
+        JLabel img = new JLabel("");
+
+​
+
+        JButton btnNewButton = new JButton("\uC9DC\uC7A5");
+
+        btnNewButton.setBackground(Color.ORANGE);
+
+        btnNewButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                ImageIcon icon = new ImageIcon("jj.jpg");
+
+                img.setIcon(icon);
+
+                count++; // 증감연산자
+
+                t1.setText(count + "개"); // '개' 빼고 count만 넣으면 string함수에 int만 들어가서 오류가 뜸
+
+                // string -> int : Integer.parseInt()
+
+                // int -> string : String.valueOf() //t1.setText(String.valueOf(count))
+
+                // int sum = count * price; // 전체 금액 계산
+
+                total = total + price_jj;
+
+                t2.setText(total + "원");
+
+            }
+
+        });
+
+        btnNewButton.setBounds(12, 28, 133, 93);
+
+        f.getContentPane().add(btnNewButton);
+
+​
+
+        JButton btnNewButton_1 = new JButton("\uC9EC\uBF55");
+
+        btnNewButton_1.setBackground(Color.ORANGE);
+
+        btnNewButton_1.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                ImageIcon icon = new ImageIcon("jp.jpg");
+
+                img.setIcon(icon);
+
+                count++;
+
+                t1.setText(count + "개");
+
+                total = total + price_jp;
+
+                t2.setText(total + "원");
+
+            }
+
+        });
+
+        btnNewButton_1.setBounds(158, 28, 133, 93);
+
+        f.getContentPane().add(btnNewButton_1);
+
+​
+
+        JButton btnNewButton_2 = new JButton("\uC6B0\uB3D9");
+
+        btnNewButton_2.setBackground(Color.ORANGE);
+
+        btnNewButton_2.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                ImageIcon icon = new ImageIcon("wd.jpg");
+
+                img.setIcon(icon);
+
+                count++;
+
+                t1.setText(count + "개");
+
+                total = total + price_wd;
+
+                t2.setText(total + "원");
+
+            }
+
+        });
+
+        btnNewButton_2.setBounds(303, 28, 133, 93);
+
+        f.getContentPane().add(btnNewButton_2);
+
+​
+
+        t1 = new JTextField();
+
+        t1.setBounds(504, 49, 153, 51);
+
+        f.getContentPane().add(t1);
+
+        t1.setColumns(10);
+
+​
+
+        t2 = new JTextField();
+
+        t2.setBounds(510, 407, 147, 70);
+
+        f.getContentPane().add(t2);
+
+        t2.setColumns(10);
+
+​
+
+        JLabel lblNewLabel = new JLabel("\uAC1C\uC218");
+
+        lblNewLabel.setForeground(Color.WHITE);
+
+        lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 16));
+
+        lblNewLabel.setBounds(457, 47, 90, 51);
+
+        f.getContentPane().add(lblNewLabel);
+
+​
+
+        img.setIcon(new ImageIcon("E:\\jy\\java_project\\data04\\chinese restaurant.jpg"));
+
+        img.setBounds(22, 133, 450, 286);
+
+        f.getContentPane().add(img);
+
+​
+
+        JLabel lblNewLabel_2 = new JLabel("\uC9C0\uBD88\uD560 \uCD1D \uAE08\uC561");
+
+        lblNewLabel_2.setForeground(Color.WHITE);
+
+        lblNewLabel_2.setFont(new Font("맑은 고딕", Font.BOLD, 24));
+
+        lblNewLabel_2.setBounds(510, 357, 335, 40);
+
+        f.getContentPane().add(lblNewLabel_2);
+
+​
+
+        f.setVisible(true);
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 제어문;
+
+​
+
+public class ForTest1 {
+
+​
+
+    public static void main(String[] args) {
+
+        
+
+        int sum = 0;
+
+        for (int i = 1; i <= 10; i++) {
+
+            sum = sum + i;
+
+            System.out.println(sum);
+
+        }
+
+        System.out.println(sum);
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 제어문;
+
+​
+
+import java.util.Scanner;
+
+​
+
+public class ForTest2 {
+
+​
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        
+
+        System.out.print("숫자를 입력해주세요 1 : ");
+
+        int num1 = sc.nextInt();
+
+        
+
+        System.out.print("숫자를 입력해주세요 2 : ");
+
+        int num2 = sc.nextInt();
+
+                
+
+        int sum = 0;
+
+        
+
+        for (int i = num1; i <= num2; i++) {
+
+            sum = sum + i;
+
+            System.out.println(sum);
+
+        }
+
+        System.out.println(sum);
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 제어문;
+
+​
+
+import java.util.Scanner;
+
+​
+
+public class ForTest3 {
+
+​
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        
+
+        System.out.print("팩토리얼을 만들 숫자를 입력해주세요  : ");
+
+        int num1 = sc.nextInt();
+
+                
+
+        int fac = 1;
+
+        
+
+        for (int i = 1; i < num1 ; i++) {
+
+            fac = fac * i;
+
+            System.out.println(fac);
+
+        }
+
+        System.out.println(fac);
+
+    }
+
+​
+
+    
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 제어문;
+
+​
+
+public class switchTest1 {
+
+​
+
+    public static void main(String[] args) {
+
+        String food = "짜장";
+
+        
+
+        switch(food) {
+
+        case "짜장":
+
+            System.out.println("중국집으로!!");
+
+            break;
+
+        case "우동":
+
+            System.out.println("일식집으로!!");
+
+            break;
+
+        case "라면":          
+
+            System.out.println("분식집으로!!");
+
+            break;
+
+        default:
+
+            System.out.println("집에서!!");
+
+            break;
+
+        }
+
+        
+
+​
+
+    }
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 제어문;
+
+​
+
+import java.util.Date;
+
+​
+
+public class switchTest2 {
+
+​
+
+    public static void main(String[] args) {    
+
+        
+
+        Date date = new Date();
+
+        int month = date.getMonth()+1;
+
+        
+
+        switch(month) {
+
+        case 3: case 4: case 5:
+
+            System.out.println("봄"); break;
+
+        case 6: case 7: case 8:
+
+            System.out.println("봄"); break;
+
+        case 9: case 10: case 11:
+
+            System.out.println("봄"); break; 
+
+        default:
+
+            System.out.println("겨울");
+
+        }
+
+        
+
+​
+
+    }
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 제어문;
+
+​
+
+import java.util.Scanner;
+
+​
+
+public class TEST3 {
+
+​
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("두 수를 입력받아요");
+
+        System.out.println("첫번째 수: ");
+
+        int num1 = sc.nextInt();
+
+        System.out.println("두번째 수: ");
+
+        int num2 = sc.nextInt();
+
+        System.out.println("연산자: ");
+
+        String oper = sc.next();
+
+        
+
+        switch (oper) {
+
+        case "+":
+
+            System.out.println("두 수의 합: " + (num1 + num2));
+
+            break;
+
+        case "-":
+
+            System.out.println("두 수의 차: " + (num1 - num2));
+
+            break;
+
+        case "*":
+
+            System.out.println("두 수의 곱: " + (num1 * num2));
+
+            break;
+
+        case "/":
+
+            System.out.println("두 수의 나눗셈: " + (num1 / num2));
+
+            break;
+
+        default:
+
+        }
+
+                    
+
+                    
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 제어문;
+
+​
+
+​
+
+public class TEST4 {
+
+​
+
+    public static void main(String[] args) {
+
+        String sn ="901010-2055511";
+
+        char gender = sn.charAt(7); //7번 인덱스 글자를 비교함
+
+        switch (gender) {
+
+        case '1': case '3':
+
+            System.out.println("남");
+
+            break;
+
+        default:
+
+            System.out.println("여");
+
+            break;
+
+        }
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 제어문;
+
+​
+
+import java.util.Date;
+
+​
+
+public class TEST01 {
+
+​
+
+    public static void main(String[] args) {
+
+            
+
+        Date date = new Date();
+
+        int month = date.getMonth() + 1;
+
+​
+
+        //변수에 정수만 들어갈 수 있음 (byte, int) //실수는 안됨. char가능, string가능
+
+        switch (month) {
+
+        case 2:
+
+            System.out.println("28일까지"); break;
+
+        case 6: case 9: case 11:
+
+            System.out.println("30일까지"); break;
+
+        default:
+
+            System.out.println("31일까지"); 
+
+        }
+
+        
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 제어문;
+
+​
+
+import java.util.Scanner;
+
+​
+
+public class whileTest3 {
+
+​
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        
+
+        System.out.println("시작값: "); //2
+
+        int num1 = sc.nextInt();        
+
+        
+
+        System.out.println("종료값: "); //20   
+
+        int num2 = sc.nextInt();
+
+​
+
+        int start = num1;
+
+        int sum = 0;
+
+        
+
+        while (start <= num2) {
+
+            sum = sum + start;
+
+            start++;
+
+        }
+
+        System.out.println("총합은 " + sum);
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 배열;
+
+​
+
+public class 배열1 {
+
+​
+
+    public static void main(String[] args) {
+
+        int[] seat = new int[10];
+
+        // int[] : int로 만들어진 배열
+
+        // seat : 배열의 이름, 주소, 참조형 변수
+
+        // new : 복사
+
+        // int[10] : 기본형 변수인 int 10개 복사
+
+        
+
+        System.out.println(seat);
+
+        System.out.println(seat[0]);
+
+        System.out.println(seat[1]); // 0으로 초기화
+
+        System.out.println(seat[2]);
+
+​
+
+        //배열의 개수를 알고 싶으면, 배열명.length
+
+        System.out.println(seat.length);
+
+        //배열의 마지막 인덱스는? seat[9]
+
+        System.out.println(seat[seat.length-1]);
+
+        
+
+        seat[seat.length-1] = 100;
+
+        
+
+        for (int i = 0; i < seat.length; i++) {
+
+            System.out.println(seat[i]);
+
+        }
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 배열;
+
+​
+
+public class 배열2 {
+
+​
+
+    public static void main(String[] args) {
+
+        int[] seat = new int[100000]; // int seat[]와 같은 뜻  // 10은 개수!
+
+        // 자바에서의 배열은 크기를 정하지 않으면 쓸 수 없다.
+
+        
+
+        for (int i = 0; i < seat.length; i++) {
+
+            seat[i] = i + 1;        
+
+        }
+
+        
+
+        for (int i = 0; i < seat.length; i++) {
+
+            System.out.println(seat[i]);
+
+        }
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 배열;
+
+​
+
+import java.util.Random;
+
+​
+
+public class 배열3 {
+
+​
+
+    public static void main(String[] args) {
+
+        int[] seat = new int[1000];
+
+        
+
+        // 랜덤 클래스 필요
+
+        Random r = new Random(42);
+
+        for (int i = 0; i < seat.length; i++) {
+
+            seat[i] = r.nextInt(1000); // 0~999 사이 값
+
+            // i=0일때 random한 int값 하나 발생 시켜서 seat[0]에 대입
+
+        }
+
+​
+
+        for (int i = 0; i < seat.length; i++) {
+
+            System.out.println(seat[i]);
+
+        }
+
+        
+
+        for (int i = 0; i < seat.length; i++) {
+
+            if (seat[i] == 999) {
+
+                System.out.println("999가 있음.");
+
+            }}
+
+            
+
+        int count = 0;
+
+        for (int i = 0; i < seat.length; i++) {
+
+            if (seat[i] == 999) {
+
+                count++;
+
+            }
+
+        }
+
+​
+
+        System.out.println(count);
+
+        
+
+        }
+
+    
+
+        
+
+}
