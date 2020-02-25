@@ -1,0 +1,1207 @@
+
+package 배열심화;
+
+
+import java.util.Random;
+
+
+public class 랜덤배열 {
+
+
+    public static void main(String[] args) {
+
+        //랜덤하게 값을 1000개 시켜서,
+
+        Random r = new Random(42); //참조형 변수, 지역변수  
+
+        //seed값(씨앗값)
+
+        //1000개의 데이터를 저장할 수 있는 공간 필요
+
+        //=>배열(array)
+
+        int[] numbers = new int[1000]; //1000개의 정수 변수를 저장할 수 있는 공간을 만듦
+
+        
+
+        for (int i = 0; i < numbers.length; i++) { //for문으로 랜덤 0~999사이의 변수를 생성
+
+            numbers[i] = r.nextInt(1000); //0~999 범위
+
+        }
+
+        
+
+        for (int i = 0; i < numbers.length; i++) { //배열의 인덱스 값과 해당 인덱스의 변수 값을 프린트
+
+            System.out.println(i + ": " + numbers[i]);
+
+        }
+
+        
+
+        //최대값이 무엇인지 찾아보고,
+
+        int max = numbers[0];
+
+        for (int i = 0; i < numbers.length; i++) {
+
+            if (numbers[i] > max) {
+
+                max = numbers[i];
+
+            }
+
+        }
+
+        //if (numbers[i] > max) max = numbers[i]; //if의 조건 이하가  1줄이면 괄호 생략 가능
+
+        
+
+        System.out.println("최대값은 " + max);
+
+        
+
+        //위치가 어디인지 찾아보고.
+
+        //max값이 어디에 있는지 찾아봅시다.
+
+        int count = 0;
+
+        for (int i = 0; i < numbers.length; i++) {
+
+            if (max == numbers[i]) {
+
+                System.out.println(max + "값의 위치는 " + i);
+
+                count++;
+
+            }
+
+        }
+
+        //몇 개나 있는지 찾아봅시다.
+
+        System.out.println(max + "값의 개수는 " + count + "개");
+
+        
+
+        
+
+    }
+
+
+}
+
+package 배열심화;
+
+
+import java.util.Random;
+
+
+public class 랜덤배열 {
+
+
+    public static void main(String[] args) {
+
+        //랜덤하게 값을 1000개 시켜서,
+
+        Random r = new Random(42); //참조형 변수, 지역변수  
+
+        //seed값(씨앗값)
+
+        //1000개의 데이터를 저장할 수 있는 공간 필요
+
+        //=>배열(array)
+
+        int[] numbers = new int[1000]; //1000개의 정수 변수를 저장할 수 있는 공간을 만듦
+
+        
+
+        for (int i = 0; i < numbers.length; i++) { //for문으로 랜덤 0~999사이의 변수를 생성
+
+            numbers[i] = r.nextInt(1000); //0~999 범위
+
+        }
+
+        
+
+        for (int i = 0; i < numbers.length; i++) { //배열의 인덱스 값과 해당 인덱스의 변수 값을 프린트
+
+            System.out.println(i + ": " + numbers[i]);
+
+        }
+
+        
+
+        //최대값이 무엇인지 찾아보고,
+
+        int max = numbers[0];
+
+        for (int i = 0; i < numbers.length; i++) {
+
+            if (numbers[i] > max) {
+
+                max = numbers[i];
+
+            }
+
+        }
+
+        //if (numbers[i] > max) max = numbers[i]; //if의 조건 이하가  1줄이면 괄호 생략 가능
+
+        
+
+        System.out.println("최대값은 " + max);
+
+        
+
+        //위치가 어디인지 찾아보고.
+
+        //max값이 어디에 있는지 찾아봅시다.
+
+        int count = 0;
+
+        for (int i = 0; i < numbers.length; i++) {
+
+            if (max == numbers[i]) {
+
+                System.out.println(max + "값의 위치는 " + i);
+
+                count++;
+
+            }
+
+        }
+
+        //몇 개나 있는지 찾아봅시다.
+
+        System.out.println(max + "값의 개수는 " + count + "개");
+
+        
+
+        
+
+    }
+
+
+}
+
+
+
+
+
+
+
+package 배열심화;
+
+
+import javax.swing.JOptionPane;
+
+
+public class 배열복습 {
+
+
+    public static void main(String[] args) {
+
+        //1. 내가 배열에 들어갈 값들을 처음부터 알고 있는 경우
+
+        String[] names = {"홍길동", "박길동", "송길동"};
+
+        
+
+        //2. 내가 배열에 들어갈 값들을 나중에 넣어주는 경우
+
+        String[] subject = new String[3]; // 3=> r개수
+
+        //subject, length, subject[0], subject[1], subject[2], 
+
+        
+
+        //배열에 값들을 입력받아서 집어 넣는 코드
+
+        for (int i = 0; i < subject.length; i++) {
+
+            subject[i] = JOptionPane.showInputDialog("과목입력");
+
+        }
+
+    
+
+        //배열에 넣었던 값들을 프린트
+
+        for (int i = 0; i < subject.length; i++) {
+
+            System.out.println(subject[i]);
+
+        }
+
+        for (String s : subject) { //for each (향상된 for 문) 에서는 배열의 항목 수만큼 실행부분을 반복하는데 
+
+                            //반복이 이루어질 때마다 배열의 항목을 순서대로 꺼내어 변수(number) 에 자동으로 대입해 줍니다.
+
+            System.out.println(s);
+
+        }
+
+        
+
+        
+
+    }
+
+
+}
+
+
+
+
+
+
+
+package 배열심화;
+
+
+public class 위치를바꿔봅시다 {
+
+
+    public static void main(String[] args) {
+
+        int[] num = {66,77,33,22,99};
+
+        int temp = num[0]; //temp <-66
+
+        num[0] = num[1];
+
+        num[1] = temp;
+
+        for (int i : num) {
+
+            System.out.println(i);
+
+        }
+
+        
+
+    }
+
+
+}
+
+
+
+
+
+
+
+package 배열심화;
+
+
+public class 중간값누적 {
+
+
+    public static void main(String[] args) {
+
+        //1~100까지의 수 중에서 짝수를 구해서 배열에 넣어봅시다.
+
+        int[] even = new int[50]; //50개의 변수를 저장할 공간 생성
+
+        int index= 0; //for문에서 index를 사용하지 않기에 따로 인덱스 생성
+
+        
+
+        for (int i = 1; i <= 100; i++) { //1~100 넣기
+
+            if (i % 2 == 0) { //%는 나머지 연산자
+
+                even[index] = i; //짝수 i를 even배열에 추가해주고
+
+                index++; // 다음 인덱스를 for문 돌리기 위해 인덱스 업!
+
+            }
+
+        }
+
+        for (int i : even) {
+
+            System.out.println(i);
+
+        }
+
+        
+
+        
+
+        
+
+    }
+
+
+}
+
+
+
+
+
+
+
+package 배열심화;
+
+
+import java.util.ArrayList;
+
+
+public class 중간값누적2 {
+
+
+    public static void main(String[] args) {
+
+        //1~100까지의 수 중에서 짝수를 구해서 배열에 넣어봅시다.
+
+        ArrayList even = new ArrayList(); //파이썬의 리스트와 비슷. 미리 크기 정해줄 필요도 없음.
+
+        
+
+        for (int i = 1; i <= 100; i++) { 
+
+            if (i % 2 == 0) { 
+
+                even.add(i); //인덱스가 필요 없음, 마지막에 추가해주는 것
+
+            }
+
+        }
+
+        System.out.println(even);
+
+        System.out.println(even.size());
+
+        
+
+        int sum = 0;
+
+        for (int i = 1; i <= 1000; i++) {
+
+            sum = sum + i;
+
+        }
+
+        System.out.println(count);
+
+        
+
+        
+
+    }
+
+}
+
+
+
+
+
+
+
+package 배열심화;
+
+
+import javax.swing.JOptionPane;
+
+
+public class 최대값찾기 {
+
+
+    public static void main(String[] args) {
+
+        int[] num = {90, 80, 20, 60, 70};
+
+        //1. 최대값을 찾으려면 배열을 다 돌아야 한다.
+
+        //2. 해당 index를 돌았을 때 까지의 최대값을 저장하기 위한 임시 변수를 하나 만들자!
+
+        //3. 배열을 다 돌았으면 임시변수에는 최대값이 남을 것이다
+
+        int max = num[0];
+
+        //왜 첫번째 값을 넣었는가?
+
+        //1) 습관적으로 0을 넣긴 하지만, 찾고자 하는 리스트 이외의 값을 넣어두면 생각지 못했던 변수가 발생하게 됨
+
+        //2) 임시변수에는 리스트에 있는 값 중에 하나를 넣으면 된다 => index가 증가하면서 순회하기 때문에 첫번째 값을 넣음
+
+        
+
+        //배열을 순회하면서 최대값 찾기
+
+        for (int i = 0; i < num.length; i++) {
+
+            //해당 인덱스에 들어있는 값이 max변수 보다 큰지 조건 체크 
+
+            //true이면, 해당 인덱스에 들어있는 값을 max변수에 대입
+
+            if (num[i] > max) {
+
+                max = num[i];
+
+            }
+
+        }
+
+        System.out.println("최대값은 : " + max);
+
+        
+
+        //입력받은 5개의 값 중에서 최대값을 찾기
+
+        int[] five = new int[5];
+
+        int max2 = five[0];
+
+        
+
+        for (int i = 0; i < num.length; i++) {
+
+             five[i] = Integer.parseInt(JOptionPane.showInputDialog("숫자를 입력하세요"));
+
+        }
+
+        
+
+        for (int i = 0; i < five.length; i++) {
+
+            if (five[i] > max2 ) {
+
+                max2 = five[i];
+
+            }
+
+        }    
+
+        System.out.println("최대값은 : " + max2);
+
+
+        
+
+        
+
+    }
+
+
+}
+
+
+
+
+
+
+
+package 그래픽;
+
+
+import java.awt.BorderLayout;
+
+import java.awt.Color;
+
+
+import javax.swing.ImageIcon;
+
+import javax.swing.JButton;
+
+import javax.swing.JFrame;
+
+import javax.swing.JTextField;
+
+import java.awt.event.ActionListener;
+
+import java.awt.event.ActionEvent;
+
+import java.awt.Font;
+
+
+public class 영화앨범 {
+
+    private static JTextField t2;
+
+    private static JTextField t1;
+
+    static int start = 5; // 처음에 실행했을 때 보여질 인덱스
+
+
+    public static void main(String[] args) {
+
+        String[] movies = { "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg" };
+
+        String[] names = { "1917", "기생충", "숀더쉽 더무비", "수퍼 소닉", "작은 아씨들", 
+
+                "정직한 후보", "조조 래빗", "지푸라기라도 잡고 싶은 짐승들", "클로젯", "하이 젝시" };
+
+        double[] rate = {18.46, 1.98, 1.11, 1.46, 1.11, 20.26, 0.87, 34.13, 3.34, 1.41};
+
+
+        "+"
+
+        
+
+        JFrame f = new JFrame();
+
+        f.setTitle("\uC601\uD654\uC568\uBC94");
+
+        f.setSize(500, 500);
+
+        JButton img = new JButton("");
+
+
+        
+
+        JButton btnNewButton = new JButton("<<");
+
+        btnNewButton.setForeground(Color.WHITE);
+
+        btnNewButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if (start == 0) {
+
+                    start = 9;
+
+                } else {
+
+                    start--;
+
+                }
+
+                t1.setText(names[start]);
+
+                ImageIcon icon = new ImageIcon(movies[start]);
+
+                img.setIcon(icon);
+
+                t2.setText("예매율 : " + rate[start]);
+
+            }
+
+        });
+
+        btnNewButton.setBackground(new Color(148, 0, 211));
+
+        f.getContentPane().add(btnNewButton, BorderLayout.WEST);
+
+
+        JButton btnNewButton_1 = new JButton(">>");
+
+        btnNewButton_1.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if (start == 9) {
+
+                    start = 0;
+
+                } else {
+
+                    start++;
+
+                }
+
+                t1.setText(names[start]);
+
+                ImageIcon icon = new ImageIcon(movies[start]);
+
+                img.setIcon(icon);
+
+                t2.setText("예매율 : " + rate[start]);
+
+            }
+
+        });
+
+        btnNewButton_1.setForeground(Color.WHITE);
+
+        btnNewButton_1.setBackground(new Color(148, 0, 211));
+
+        f.getContentPane().add(btnNewButton_1, BorderLayout.EAST);
+
+
+        t2 = new JTextField();
+
+        t2.setText("예매율 : " + rate[start]);
+
+        t2.setBackground(Color.ORANGE);
+
+        f.getContentPane().add(t2, BorderLayout.SOUTH);
+
+        t2.setColumns(10);
+
+
+        t1 = new JTextField();
+
+        t1.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+
+        t1.setText(names[start]);
+
+        t1.setForeground(Color.WHITE);
+
+        t1.setBackground(Color.ORANGE);
+
+        f.getContentPane().add(t1, BorderLayout.NORTH);
+
+        t1.setColumns(10);
+
+
+        ImageIcon icon = new ImageIcon(movies[start]);
+
+        img.setIcon(icon);
+
+        img.setForeground(Color.WHITE);
+
+        f.getContentPane().add(img, BorderLayout.CENTER);
+
+
+        f.setVisible(true);
+
+    }
+
+
+}
+
+
+
+
+
+
+
+package 그래픽;
+
+
+import javax.swing.JFrame;
+
+import javax.swing.JTextField;
+
+import javax.swing.JButton;
+
+import java.awt.Font;
+
+import javax.swing.SwingConstants;
+
+import javax.swing.JLabel;
+
+import javax.swing.JOptionPane;
+
+
+import java.awt.event.ActionListener;
+
+import java.awt.event.ActionEvent;
+
+import java.awt.Color;
+
+
+public class 수학게임 {
+
+    private static JTextField t1;
+
+    private static JTextField t2;
+
+    private static JTextField t3;
+
+    private static JTextField t4;
+
+    private static JTextField t5;
+
+    private static JButton btnNewButton;
+
+    private static JButton btnNewButton_1;
+
+    private static JButton btnX;
+
+    private static JButton btnNewButton_3;
+
+    private static JTextField t6;
+
+    private static JButton btnNewButton_2;
+
+    
+
+    static int start = 0;
+
+    static int count1 = 0;
+
+    static int count2 = 0;
+
+    static int count3 = 0;
+
+    public static void main(String[] args) {
+
+        
+
+        JFrame f = new JFrame();
+
+        f.getContentPane().setFont(new Font("굴림", Font.PLAIN, 17));
+
+        f.getContentPane().setForeground(new Color(255, 255, 255));
+
+        f.getContentPane().setBackground(new Color(51, 102, 0));
+
+        f.setSize(600, 600);
+
+        f.getContentPane().setLayout(null);
+
+        
+
+        int [] num1 = {3,7,5,2,4,8,6,10,15,12,14,17,18,19,121,50,26,18,19,60};
+
+        int [] num3 = {2,4,3,9,7,1,5,2,16,12,10,15,23,47,11,11,10,6,16,52};
+
+        int [] num5 = {5,11,15,18,11,7,30,5,31,144,140,235,41,66,11,550,16,128,3,8};
+
+        
+
+        
+
+        
+
+        t1 = new JTextField();
+
+        t1.setForeground(new Color(255, 255, 255));
+
+        t1.setBackground(new Color(51, 102, 0));
+
+        t1.setHorizontalAlignment(SwingConstants.CENTER);
+
+        t1.setFont(new Font("굴림", Font.PLAIN, 34));
+
+        t1.setBounds(38, 90, 94, 129);
+
+        f.getContentPane().add(t1);
+
+        t1.setColumns(10);
+
+        
+
+        t2 = new JTextField();
+
+        t2.setBackground(new Color(51, 102, 0));
+
+        t2.setForeground(new Color(255, 255, 255));
+
+        t2.setText("?");
+
+        t2.setHorizontalAlignment(SwingConstants.CENTER);
+
+        t2.setFont(new Font("굴림", Font.PLAIN, 34));
+
+        t2.setColumns(10);
+
+        t2.setBounds(151, 90, 95, 129);
+
+        f.getContentPane().add(t2);
+
+        
+
+        t3 = new JTextField();
+
+        t3.setForeground(new Color(255, 255, 255));
+
+        t3.setBackground(new Color(51, 102, 0));
+
+        t3.setHorizontalAlignment(SwingConstants.CENTER);
+
+        t3.setFont(new Font("굴림", Font.PLAIN, 34));
+
+        t3.setColumns(10);
+
+        t3.setBounds(258, 90, 88, 129);
+
+        f.getContentPane().add(t3);
+
+        
+
+        t4 = new JTextField();
+
+        t4.setForeground(new Color(255, 255, 255));
+
+        t4.setBackground(new Color(51, 102, 0));
+
+        t4.setHorizontalAlignment(SwingConstants.CENTER);
+
+        t4.setFont(new Font("굴림", Font.PLAIN, 34));
+
+        t4.setText("＝");
+
+        t4.setColumns(10);
+
+        t4.setBounds(365, 90, 83, 129);
+
+        f.getContentPane().add(t4);
+
+        
+
+        t5 = new JTextField();
+
+        t5.setForeground(new Color(255, 255, 255));
+
+        t5.setBackground(new Color(51, 102, 0));
+
+        t5.setHorizontalAlignment(SwingConstants.CENTER);
+
+        t5.setFont(new Font("굴림", Font.PLAIN, 34));
+
+        t5.setColumns(10);
+
+        t5.setBounds(459, 90, 88, 129);
+
+        f.getContentPane().add(t5);
+
+        
+
+        btnNewButton = new JButton("+");
+
+        btnNewButton.setBackground(Color.WHITE);
+
+        btnNewButton.setForeground(Color.BLACK);
+
+        btnNewButton.setEnabled(false);
+
+        btnNewButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if (start >= 19) {
+
+                    JOptionPane.showMessageDialog(null, "게임 종료");
+
+                    System.exit(0);
+
+                }
+
+                if (num1[start] + num3[start] == num5[start]) {
+
+                    start++;
+
+                    t1.setText(num1[start] + "");
+
+                    t3.setText(num3[start] + "");
+
+                    t5.setText(num5[start] + "");
+
+                    count1++;
+
+                    t6.setText(" 총 횟수 : "+(count1+count2)+"/20  "+  "맞춘횟수 : " + count1 + "   틀린횟수 : " + count2);
+
+                } 
+
+      0;         else {
+
+                    start++;
+
+                    t1.setText(num1[start] + "");
+
+                    t3.setText(num3[start] + "");
+
+                    t5.setText(num5[start] + "");
+
+                    count2++;
+
+                    t6.setText(" 총 횟수 : "+(count1+count2)+"/20  "+  "맞춘횟수 : " + count1 + "   틀린횟수 : " + count2);
+
+                }
+
+
+                
+
+            }
+
+        });
+
+        btnNewButton.setFont(new Font("돋움", Font.PLAIN, 30));
+
+        btnNewButton.setBounds(38, 241, 111, 71);
+
+        f.getContentPane().add(btnNewButton);
+
+        
+
+        btnNewButton_1 = new JButton("-");
+
+        btnNewButton_1.setBackground(Color.WHITE);
+
+        btnNewButton_1.setForeground(Color.BLACK);
+
+        btnNewButton_1.setEnabled(false);
+
+        btnNewButton_1.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if (start >= 19) {
+
+                    JOptionPane.showMessageDialog(null, "게임 종료");
+
+                    System.exit(0);
+
+                }
+
+                if (num1[start] - num3[start] == num5[start]) {
+
+                    start++;
+
+                    t1.setText(num1[start] + "");
+
+                    t3.setText(num3[start] + "");
+
+                    t5.setText(num5[start] + "");
+
+                    count1++;
+
+                    t6.setText(" 총 횟수 : "+(count1+count2)+"/20  "+  "맞춘횟수 : " + count1 + "   틀린횟수 : " + count2);
+
+                } else {
+
+                    start++;
+
+                    t1.setText(num1[start] + "");
+
+                    t3.setText(num3[start] + "");
+
+                    t5.setText(num5[start] + "");
+
+                    count2++;
+
+                    t6.setText(" 총 횟수 : "+(count1+count2)+"/20  "+  "맞춘횟수 : " + count1 + "   틀린횟수 : " + count2);
+
+                }
+
+                
+
+            }
+
+        });
+
+        btnNewButton_1.setFont(new Font("돋움", Font.PLAIN, 30));
+
+        btnNewButton_1.setBounds(175, 241, 111, 71);
+
+        f.getContentPane().add(btnNewButton_1);
+
+        
+
+        btnX = new JButton("\u00D7");
+
+        btnX.setBackground(Color.WHITE);
+
+        btnX.setForeground(Color.BLACK);
+
+        btnX.setEnabled(false);
+
+        btnX.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if (start >= 19) {
+
+                    JOptionPane.showMessageDialog(null, "게임 종료");
+
+                    System.exit(0);
+
+                }
+
+                if (num1[start] * num3[start] == num5[start]) {
+
+                    start++;
+
+                    t1.setText(num1[start] + "");
+
+                    t3.setText(num3[start] + "");
+
+                    t5.setText(num5[start] + "");
+
+                    count1++;
+
+                    t6.setText(" 총 횟수 : "+(count1+count2)+"/20  "+  "맞춘횟수 : " + count1 + "   틀린횟수 : " + count2);
+
+                } else {
+
+                    start++;
+
+                    t1.setText(num1[start] + "");
+
+                    t3.setText(num3[start] + "");
+
+                    t5.setText(num5[start] + "");
+
+                    count2++;
+
+                    t6.setText(" 총 횟수 : "+(count1+count2)+"/20  "+  "맞춘횟수 : " + count1 + "   틀린횟수 : " + count2);
+
+                }
+
+                
+
+            }
+
+        });
+
+        btnX.setFont(new Font("돋움", Font.PLAIN, 30));
+
+        btnX.setBounds(310, 241, 111, 71);
+
+        f.getContentPane().add(btnX);
+
+        
+
+        btnNewButton_3 = new JButton("\u00F7");
+
+        btnNewButton_3.setBackground(Color.WHITE);
+
+        btnNewButton_3.setForeground(Color.BLACK);
+
+        btnNewButton_3.setEnabled(false);
+
+        btnNewButton_3.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                if (start >= 19) {
+
+                    JOptionPane.showMessageDialog(null, "게임 종료");
+
+                    System.exit(0);
+
+                }
+
+                if (num1[start] / num3[start] == num5[start]) {
+
+                    start++;
+
+                    t1.setText(num1[start] + "");
+
+                    t3.setText(num3[start] + "");
+
+                    t5.setText(num5[start] + "");
+
+                    count1++;
+
+                    t6.setText(" 총 횟수 : "+(count1+count2)+"/20  "+  "맞춘횟수 : " + count1 + "   틀린횟수 : " + count2);
+
+                } else {
+
+                    start++;
+
+                    t1.setText(num1[start] + "");
+
+                    t3.setText(num3[start] + "");
+
+                    t5.setText(num5[start] + "");
+
+                    count2++;
+
+                    t6.setText(" 총 횟수 : "+(count1+count2)+"/20  "+  "맞춘횟수 : " + count1 + "   틀린횟수 : " + count2);
+
+                }
+
+                
+
+            }
+
+        });
+
+        btnNewButton_3.setFont(new Font("돋움", Font.PLAIN, 30));
+
+        btnNewButton_3.setBounds(436, 241, 111, 71);
+
+        f.getContentPane().add(btnNewButton_3);
+
+        
+
+        t6 = new JTextField();
+
+        t6.setBackground(new Color(51, 102, 0));
+
+        t6.setForeground(new Color(255, 255, 255));
+
+        t6.setFont(new Font("맑은 고딕", Font.PLAIN, 16));
+
+        t6.setText("\uAC8C\uC784\uC2DC\uC791 \uBC84\uD2BC\uC744 \uB20C\uB7EC\uC8FC\uC2DC\uACE0 \uAC00\uC6B4\uB370\uC5D0 \uB4E4\uC5B4\uAC08 \uC5F0\uC0B0\uC790\uB97C \uB9DE\uCDB0\uC8FC\uC138\uC694.");
+
+        t6.setHorizontalAlignment(SwingConstants.CENTER);
+
+        t6.setBounds(38, 419, 525, 71);
+
+        f.getContentPane().add(t6);
+
+        t6.setColumns(10);
+
+        
+
+        btnNewButton_2 = new JButton("\uAC8C\uC784\uC2DC\uC791");
+
+        btnNewButton_2.setBackground(Color.WHITE);
+
+        btnNewButton_2.setForeground(Color.BLACK);
+
+        btnNewButton_2.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                btnNewButton.setEnabled(true);
+
+                btnNewButton_1.setEnabled(true);
+
+                btnX.setEnabled(true);
+
+                btnNewButton_3.setEnabled(true);
+
+                t1.setText(num1[start]+"");
+
+                t3.setText(num3[start]+"");
+
+                t5.setText(num5[start]+"");
+
+                t6.setText("게임 시작!!!");
+
+            }
+
+        });
+
+        btnNewButton_2.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
+
+        btnNewButton_2.setBounds(83, 334, 431, 50);
+
+        f.getContentPane().add(btnNewButton_2);
+
+        
+
+        JLabel lblNewLabel = new JLabel("\uC5F0\uC0B0 \uB9DE\uCD94\uAE30 \uAC8C\uC784");
+
+        lblNewLabel.setBackground(new Color(51, 102, 0));
+
+        lblNewLabel.setForeground(new Color(255, 255, 255));
+
+        lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+        lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 28));
+
+        lblNewLabel.setBounds(39, 20, 508, 42);
+
+        f.getContentPane().add(lblNewLabel);
+
+        
+
+        
+
+        
+
+        
+
+        f.setVisible(true);
+
+        
+
+        
+
+    }
+
+}
+
+
+
