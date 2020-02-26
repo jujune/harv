@@ -1,0 +1,186 @@
+
+-- 검색기능(read)
+
+​
+
+select * from member
+
+​
+
+select id from member
+
+​
+
+select id, pw from member
+
+- ctrl + enter : 실행
+
+​
+
+select id, name from member
+
+​
+
+select tel, id from member
+
+/* where는 값을 가지고 조건 검색 사용*/
+
+select * from member where id = 'park'
+
+​
+
+/* id가 kim인 사람의 전화번호와 이름을 검색 */
+
+-- ctrl + / 주석
+
+select tel, name from member where id = 'kim'
+
+​
+
+select * from member where pw = 'park' and id = 'park'
+
+​
+
+-- 삽입기능(create)
+
+insert into member values ('summer','summer','summer','summer')
+
+​
+
+select * from member where id = 'summer'
+
+​
+
+-- winter, spring을 넣어 검색해보세요.
+
+-- 삽입 연습 중 (행 단위, 레코드)
+
+​
+
+insert into member values ('winter','winter','winter','winter')
+
+​
+
+insert into member values ('spring','spring','spring','spring')
+
+​
+
+select * from member where id = 'summer'
+
+​
+
+select * from member where id = 'spring'
+
+​
+
+-- 수정(update)
+
+update member set tel = '999' where id = 'summer'
+
+​
+
+-- update 테이블명 set 수정할값 where 조건
+
+select * from member where id = 'summer'
+
+​
+
+update member set name = 'gogogo', tel = 'ringring' where id = 'winter'
+
+​
+
+select * from member where id = 'winter'
+
+​
+
+-- 삭제 delete : record(행)단위로!
+
+delete from member where id = 'park5'
+
+​
+
+select * from member where id = 'park'
+
+-- winter의 tel을 지우고 싶음.
+
+-- delete를 쓰면 winter가 통째로 삭제됨
+
+​
+
+update member set tel = null where id = 'winter'
+
+​
+
+select * from member where id = 'winter'
+
+​
+
+select * from member where tel is null
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+insert into movie values ('100','kisangchung','horror','34.5%','bong')
+
+​
+
+insert into movie values ('200','1917','war','40.1%','sam')
+
+​
+
+insert into movie values ('300','Invisible man','difficult','15.5%','lee')
+
+​
+
+insert into movie values ('400','The Gentlemen','fun','11.4%','guy')
+
+​
+
+insert into movie values ('500','Closet','action','8.9%','lee')
+
+​
+
+select * from movie
+
+​
+
+select * from movie where id = '200'
+
+​
+
+select title, prepay from movie where id = '300'
+
+​
+
+select title, director, prepay from movie where content = 'action'
+
+​
+
+select title, content from movie where director = 'lee' and id = '300'
+
+​
+
+update movie set content = 'action' where director = 'sam'
+
+​
+
+update movie set prepay = '57.2%', content = 'social' where director = 'bong'
+
+​
+
+update movie set prepay = null where id='400'
+
+​
+
+delete from movie where director = 'sam'
+
+​
