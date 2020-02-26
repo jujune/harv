@@ -1,0 +1,526 @@
+
+package 이차원배열;
+
+​
+
+public class 구구단 {
+
+​
+
+    public static void main(String[] args) {
+
+        //2~9단까지 반복
+
+        for (int i = 2; i < 10; i++) {
+
+            //한 단이 for문 하나
+
+            for (int j = 1; j < 10; j++) {
+
+                System.out.println(i + " x " + j + " = " + (i*j));
+
+            }
+
+        }
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 이차원배열;
+
+​
+
+import java.util.Scanner;
+
+​
+
+public class 극장예매2차원_RE {
+
+    
+
+    //shift + end = 커서부터 한 줄 끝까지 드래그
+
+    //ctrl + shift + end = 전체 드래그
+
+    
+
+    public static void main(String[] args) {
+
+        int[][] seat = new int[3][10]; //3행 10열의 저장공간을 만들어줌 
+
+        Scanner sc = new Scanner(System.in); //좌석선택을 위한 스캐너 메소드 호출
+
+        int count = 0; //티켓 장수를 세기 위한 카운트 변수 선언
+
+        
+
+        while (true) { //티켓 재선택을 위한 while문
+
+            System.out.println("극장 예매 시스템입니다.");
+
+            System.out.println("-----------------------");
+
+            System.out.print("   ");
+
+            for (int i = 0; i < 10; i++) { //좌석 열 번호 프린트
+
+                System.out.print(i + " ");
+
+            }
+
+            System.out.println();
+
+            System.out.println("-----------------------");
+
+            for (int i = 0; i < seat.length; i++) {
+
+                System.out.print(i + ": "); //좌석 행 번호 프린트
+
+                for (int j = 0; j < seat[i].length; j++) {
+
+                    System.out.print(seat[i][j] + " "); //전체 좌석 프린트
+
+                }
+
+                System.out.println();
+
+            }
+
+            System.out.println("-----------------------");
+
+            System.out.print("예매를 진행하시겠습니까? 종료x>> ");
+
+            String data = sc.next(); //종료 입력을 위한 스캐너 메소드
+
+            if (data.equals("x")) { //입력된 값이 "x"와 같다면
+
+                System.out.println("총 예매금액은 " + count * 10000 + "원 입니다."); //총 결제금액 프린트 후
+
+                System.exit(0); // 종료
+
+            }
+
+            System.out.print("예매 행(0~2): ");
+
+            int row = sc.nextInt(); //예매하고 싶은 행 값 입력
+
+            System.out.print("예매 열(0~9): ");
+
+            int col = sc.nextInt(); //예매하고 싶은 열 값 입력
+
+            if (seat[row][col] == 0) { //좌석이 예매되지 않았다면
+
+                seat[row][col] = 1; //예매처리(0->1)
+
+                System.out.println("예매처리 완료");
+
+                count++; //전체 티켓 수 카운트+1
+
+            } else if (seat[row][col] == 1) { //이미 예매된 경우
+
+                System.out.println("이미 예매된 좌석입니다.");
+
+                System.out.println();
+
+                continue; //while문 처음으로 돌아감
+
+            } 
+
+        }
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 이차원배열;
+
+​
+
+import java.util.Scanner;
+
+​
+
+import javax.swing.JFrame;
+
+import javax.swing.JScrollBar;
+
+import javax.swing.JScrollPane;
+
+import javax.swing.JTable;
+
+​
+
+public class 배열을활용하여테이블만들어보자 {
+
+​
+
+    public static void main(String[] args) {
+
+        JFrame f = new JFrame();
+
+        f.setSize(300,300);
+
+        
+
+        Object[] title = {"이름","나이","전공"};
+
+        Object[][] content = {
+
+                {"홍길동", 100, "수학"},
+
+                {"박길동", 200, "수학"},
+
+                {"송길동", 100, "수학"},
+
+        };
+
+        
+
+        JTable table = new JTable(content, title);
+
+        JScrollPane scroll = new JScrollPane(table); //테이블에 스크롤을 끼우는 것이 아니라, 스크롤에 테이블을 끼우는 개념.
+
+        f.add(scroll);  //스크롤이 없으면 테이블이 나타나지 않는다
+
+        
+
+        f.setVisible(true);
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 이차원배열;
+
+​
+
+public class 별100개찍기 {
+
+​
+
+    public static void main(String[] args) {    
+
+        //10번 반복해보자
+
+        for (int i = 0; i < 10; i++) {
+
+            //for문 하나당 별 10개 씩 한줄
+
+            for (int j = 0; j < 10; j++) {
+
+                System.out.print("★"+" ");
+
+        }
+
+            System.out.println();
+
+        }
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 이차원배열;
+
+​
+
+public class 이차원배열1 {
+
+​
+
+    public static void main(String[] args) {
+
+        //값을 미리 알고 있는가 모르는가?
+
+        int[][] seat = new int[3][10]; //3행 10열 (30개의 저장공간) //이차원배열 이렇게 씀.
+
+        //30개의 저장공간에 모두 0으로 초기화 되어있는 상태
+
+        //배열은 자동 초기화를 시켜준다. int->0, 참조형->null 
+
+        
+
+        System.out.println(seat[0][9]);
+
+        seat[0][9] = 100;
+
+        System.out.println(seat[0][9]);
+
+        seat[0][6] = 200;
+
+        seat[1][8] = 300;
+
+        seat[2][3] = 400;
+
+        System.out.println(seat[0][6]);
+
+        System.out.println(seat[1][8]);
+
+        System.out.println(seat[2][3]);
+
+        System.out.println(seat.length); //행이 몇개인가
+
+        //행마다 열의 개수가 달라질 수 있다
+
+        //열의 개수를 구할 때는 행마다 각각 구해야
+
+        //2차원 배열은 1차원 배열을 여러개 가진 것
+
+        //각 행은 1차원 배열이다
+
+        //1차원인 각 행은 배열의 크기가 다를 수 있다
+
+        System.out.println(seat[0].length); //0행의 길이, 0행 안에 들어있는 열의 개수 => 열
+
+        
+
+        
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 이차원배열;
+
+​
+
+public class 이차원배열2 {
+
+​
+
+    public static void main(String[] args) {
+
+        int[][] seat = new int[3][10];
+
+        seat[0][0] = 100;
+
+        seat[2][9] = 900;
+
+        seat[1][0] = 200;
+
+        System.out.println(seat[0].length);
+
+        System.out.println(seat[1].length);
+
+        System.out.println(seat[2].length);
+
+        System.out.println(seat.length);
+
+        for (int i = 0; i < seat.length; i++) {
+
+            for (int j = 0; j < seat[i].length; j++) {
+
+                System.out.print(seat[i][j] + " ");
+
+            }
+
+            System.out.println("");
+
+        }
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 이차원배열;
+
+​
+
+public class 이차원배열3 {
+
+​
+
+    public static void main(String[] args) {
+
+        int[][] seat = new int[3][]; //열은 비워둠
+
+        int[] a = new int[10];
+
+        int[] b = new int[8];
+
+        int[] c = new int[6];
+
+        seat[0] = a; //0행에 a열을 넣음 
+
+        seat[1] = b; //1행에 b열을 넣음
+
+        seat[2] = c;
+
+        
+
+        for (int i = 0; i < seat.length; i++) {
+
+            for (int j = 0; j < seat[i].length; j++) {
+
+                System.out.print(seat[i][j] + " ");
+
+            }
+
+            System.out.println();
+
+        }
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 이차원배열;
+
+​
+
+public class 이차원배열4 {
+
+​
+
+    public static void main(String[] args) {
+
+​
+
+        String[] names = {"홍길동", "박길동"};
+
+        
+
+        String[][] names708 = {
+
+                {"호재", "지헌", "영혜"},
+
+                {"소연", "상혁", "재성","재영"},
+
+                {"신", "상도", "승종"}
+
+        };
+
+        
+
+        for (int i = 0; i < names708.length; i++) {
+
+            for (int j = 0; j < names708[i].length; j++) {
+
+                System.out.print(names708[i][j] + " ");
+
+            }
+
+            System.out.println();
+
+        }
+
+        
+
+        
+
+        
+
+        
+
+    }
+
+​
+
+}
