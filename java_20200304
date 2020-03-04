@@ -1,0 +1,1378 @@
+
+package 부품만들기;
+
+​
+
+public class 강아지 {
+
+        
+
+//      강아지 => 클래스
+
+//           부류(class, 
+
+//      ---------
+
+//      멤버변수 : 이름, 나이, 성별
+
+            String name;
+
+            int age;
+
+            char gender;
+
+            
+
+            public void eat(String food) {
+
+                System.out.println(food + "를 먹다.");
+
+            }
+
+            public void bark(int time, String place, String how) {
+
+                System.out.println(10 + "분 동안 " + place +  "에서 " + how + "짖는다.");
+
+            }
+
+            public void wave(String how, int time) { //매개변수, parameter //지역변수
+
+                System.out.println(how + " 꼬리를 " + time + "분 흔들다");
+
+            }
+
+            @Override
+
+            public String toString() {
+
+                return "강아지 [이름=" + name + ", 나이=" + age + ", 성별=" + gender + "]";
+
+            }
+
+            
+
+            
+
+    //   멤버메소드 : 먹다, 짖다, 꼬리를 흔들다.
+
+    
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 부품만들기;
+
+​
+
+public class 강아지사용 {
+
+​
+
+    static int javaa = 1;
+
+    
+
+    public static void main(String[] args) {
+
+            강아지 dog = new 강아지();
+
+            dog.name = "까돌이";
+
+            dog.age = 11;
+
+            dog.gender = '남';
+
+            System.out.println(dog);
+
+            
+
+            System.out.println("강아지 이름은" + dog.name);
+
+            dog.bark(10, "마당", "왈왈");
+
+            dog.eat("뼈다귀");
+
+            dog.wave("세차게", 30);
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 부품만들기;
+
+​
+
+public class 붕어빵틀 {
+
+//  붕어빵1과 붕어빵2는 원래 내가 먹으려고 했던 것
+
+//  붕어빵1과 붕어빵2는 원래의 목표가 되는 대상
+
+//  =>object, 실제(instance)
+
+//  object는 클래스의 실제, 클래스의 인스턴스이다.
+
+//  인스턴스 변수
+
+    
+
+// new는 객체를 생성해주는 키워드다. object!
+
+// 객체생성은? 멤버변수를 복사해주는 것! 
+
+// 각 객체에는 주소값이 들어간다!
+
+​
+
+// 주석을 계속 달아보면서, 자신의 표현이 맞는지 선생님께 계속 물어봐야함!
+
+    
+
+    
+
+    String flavor; //정적속성 2개
+
+    int price;
+
+    
+
+    public void eat() { //동적속성 2개
+
+        System.out.println("머리부터 먹다.");
+
+    }
+
+    public void pack() {
+
+        System.out.println("포장하다.");
+
+    }
+
+    @Override
+
+    public String toString() { // source 탭의 generate toString을 클릭. sysout 기능을 간단하게!
+
+        return "붕어빵틀 [맛=" + flavor + ", 가격=" + price + "]";
+
+    }
+
+    
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 부품만들기;
+
+​
+
+public class 붕어빵을먹자 {
+
+​
+
+    public static void main(String[] args) {
+
+        붕어빵틀 붕어빵1 = new 붕어빵틀(); //붕어빵1을 새로운 클래스로 생성, 복사
+
+        붕어빵1.flavor = "팥"; 
+
+        붕어빵1.price = 300;
+
+        System.out.println(붕어빵1);
+
+        
+
+        붕어빵1.eat();
+
+        붕어빵1.pack();
+
+        
+
+        붕어빵틀 붕어빵2 = new 붕어빵틀();
+
+        붕어빵2.flavor = "슈크림";
+
+        붕어빵2.price = 500;
+
+        System.out.println(붕어빵2);
+
+        
+
+        붕어빵2.eat();
+
+        붕어빵2.pack();
+
+        
+
+-       
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 부품만들기;
+
+​
+
+public class 사람 {
+
+​
+
+//      사람을 만들어 봅시다!
+
+//      ---------------------------------
+
+//      - 특징을 알아야 한다.
+
+//      - 모델링 : 설계하는 과정 (디자인)
+
+//      - 동작, 동적인 특징) 음식을 먹다, 말을 한다, 도구를 사용한다, ...
+
+//              => 메소드
+
+//      - 성질, 정적인 특징) 이름, 나이, 성별 =>변수
+
+//      => 특징 = 특성 = property, attribute, item
+
+        
+
+        //멤버 변수 -> 전역 변수, 자동 초기화
+
+        
+
+        String name; //null
+
+        int age; //0
+
+        char gender; //
+
+        
+
+        //멤버 메소드 //eat라는 함수 썼을때 중괄호 안의 메소드가 실행됨
+
+        public void eat() {
+
+            System.out.println("음식을 먹다.");
+
+        }
+
+        public void talk() {
+
+            System.out.println("말을 한다.");
+
+        }
+
+        public void tool() {
+
+            System.out.println("도구를 사용한다.");
+
+        }
+
+        
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+package 부품만들기;
+
+​
+
+public class 사람사용 {
+
+​
+
+    public static void main(String[] args) {
+
+        사람 p1 = new 사람();
+
+        p1.name = "홍길동";
+
+        p1.age = 100;
+
+        p1.gender = '남';
+
+        
+
+        p1.talk();
+
+        p1.tool();
+
+        p1.eat();
+
+        System.out.println(p1.name);
+
+        
+
+        System.out.println(강아지사용.javaa); //클래스이름.변수명 으로 써줘야 호출할 수 있음!
+
+        
+
+        
+
+        
+
+        
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+package 부품만들기;
+
+​
+
+public class Tv {
+
+//  TV => class
+
+//  ----------------
+
+​
+
+//  정적인 특징 => 멤버 변수
+
+    int channel;
+
+    boolean onOff;
+
+    int volume;
+
+    
+
+//  동적인 특징 => 멤버 메소드
+
+//  turnOn(), turnOff() => 메소드를 만든다 (메소드 정의)
+
+//  메소드를 정의했다고 해서 혼자 실행되지 않는다.
+
+//  메소드는 호출(사용)해야만 실행된다.
+
+    
+
+    public void turnOn() {
+
+        System.out.println("tv가 켜졌습니다");
+
+    }
+
+    public void turnOff() {
+
+        System.out.println("tv가 꺼졌습니다");
+
+    }
+
+    @Override
+
+    public String toString() {
+
+        return "결과값 프린트 [채널=" + channel + ", tv전원=" + onOff + ", 소리크기=" + volume + "]";
+
+    }
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 부품만들기;
+
+​
+
+public class MyRoom {
+
+​
+
+    public static void main(String[] args) {
+
+//      클래스는 패키지와 구별되기 위해 이름을 대문자 사용한다
+
+        Tv myTv = new Tv();
+
+//      Tv클래스를 복사(new)
+
+//      new는 멤버변수가 복사됨!!!
+
+        System.out.println(myTv);
+
+        myTv.channel = 7;
+
+        myTv.volume = 9;
+
+        myTv.onOff = true;
+
+        System.out.println(myTv);
+
+        
+
+        Tv yourTv = new Tv();
+
+        yourTv.channel = 7;
+
+        yourTv.volume = 12;
+
+        yourTv.onOff = true;
+
+        
+
+        myTv.turnOn();
+
+        yourTv.turnOff();
+
+        
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 부품만들기;
+
+​
+
+public class Phone {
+
+​
+
+    String product;
+
+    int camera;
+
+    int button;
+
+    
+
+    public void ring() {
+
+        System.out.println("알람이 울립니다");
+
+    }
+
+    public void message() {
+
+        System.out.println("메세지가 도착했습니다");
+
+    }
+
+    public void shot() {
+
+        System.out.println("사진을 촬영합니다.");
+
+    }
+
+}
+
+​
+
+​
+
+​
+
+​
+
+package 부품만들기;
+
+​
+
+public class MyRoom2 {
+
+​
+
+    public static void main(String[] args) {
+
+        Phone fPhone = new Phone();
+
+        fPhone.product = "iphoneX";
+
+        fPhone.camera = 2;
+
+        fPhone.button = 3;
+
+        
+
+        Phone mPhone = new Phone();
+
+        mPhone.product = "galaxy";
+
+        mPhone.camera = 3;
+
+        mPhone.button = 3;
+
+        
+
+        fPhone.ring();
+
+        fPhone.message();
+
+        fPhone.shot();
+
+        
+
+        mPhone.ring();
+
+        mPhone.message();
+
+        mPhone.shot();
+
+        
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package db연결;
+
+​
+
+import java.sql.Connection;
+
+import java.sql.DriverManager;
+
+import java.sql.PreparedStatement;
+
+​
+
+import javax.swing.JOptionPane;
+
+​
+
+public class db처리 {
+
+    String url = "jdbc:mysql://localhost:3708/virus";
+
+    String user = "root";
+
+    String password = "1234";
+
+​
+
+// 1.회원가입
+
+    public void insert(String id, String pw, String name, String tel) { //창에 입력된 값을 가져오는 매개 변수.
+
+        //매개변수(parameter), 지역변수 
+
+        System.out.println("회원가입 처리하다.");
+
+        try {
+
+            // 1) 커넥터 설정
+
+            Class.forName("com.mysql.jdbc.Driver");
+
+            System.out.println("1.커넥터 설정 OK");
+
+​
+
+            // 2) db연결
+
+            Connection con = DriverManager.getConnection(url, user, password);
+
+            System.out.println("2. db연결 OK");
+
+​
+
+            // 3) sql문 결정
+
+//          String id = JOptionPane.showInputDialog("삽입할 id 입력");
+
+//          String pw = JOptionPane.showInputDialog("삽입할 pw 입력");
+
+//          String name = JOptionPane.showInputDialog("삽입할 이름 입력");
+
+//          String tel = JOptionPane.showInputDialog("삽입할 전화번호 입력"); //스캐너, 텍스트필드, 무엇이든 상관 없음
+
+​
+
+            String sql = "insert into member values (?,?,?,?)";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, id); //유일하게 java에서 인덱스가 1로 시작하는 부분
+
+            ps.setString(2, pw);
+
+            ps.setString(3, name);
+
+            ps.setString(4, tel);
+
+            System.out.println("3. sql문 결정 OK");
+
+​
+
+            // 4) sql문 전송
+
+            ps.executeUpdate();
+
+            System.out.println("4. sql문 전송 OK");
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+​
+
+// 2.db연결
+
+    public void connect() {
+
+        System.out.println("DB연결 처리하다.");
+
+        try {
+
+            // 1) 커넥터 설정
+
+            Class.forName("com.mysql.jdbc.Driver");
+
+            System.out.println("1.커넥터 설정 OK");
+
+​
+
+            // 2) db연결
+
+            DriverManager.getConnection(url, user, password);
+
+            System.out.println("2. db연결 OK");
+
+​
+
+            // 3) sql문 결정
+
+            // 4) sql문 전송
+
+        } catch (Exception e) {
+
+            // TODO Auto-generated catch block
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+​
+
+// 3.회원탈퇴
+
+    public void delete() {
+
+        System.out.println("회원탈퇴 처리하다.");
+
+        try {
+
+            // 1) 커넥터 설정
+
+            Class.forName("com.mysql.jdbc.Driver"); //mysql JAR의 Driver라는 이름의 클래스를 불러옴
+
+            System.out.println("1.커넥터 설정 OK");
+
+​
+
+            // 2) db연결
+
+            Connection con = DriverManager.getConnection(url, user, password); //입력내용을 연결해주기 위한 connection 메소드
+
+            System.out.println("2. db연결 OK");
+
+            
+
+            String id = JOptionPane.showInputDialog("삭제하고 싶은 id를 입력하세요");
+
+            // 3) sql문 결정
+
+            String sql = "delete from member where id = ? "; //입력할 sql문 입력 // 뒤에 뭐가 올지 모른다는 ?표 표현이라는 약속,문법 //따옴표X
+
+            PreparedStatement ps = con.prepareStatement(sql); //스트링을 sql문으로 입력해주기 위한 PreparedStatement 메소드 활용
+
+            ps.setString(1, id); // 물음표 갯수에 따라서 인덱스 결정됨 
+
+            System.out.println("3. sql문 결정 OK");
+
+​
+
+            // 4) sql문 전송
+
+            ps.executeUpdate();
+
+            System.out.println("4. sql문 전송 OK");
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+    
+
+//4. 회원수정
+
+    public void update() {
+
+        System.out.println("회원가입 처리하다.");
+
+        try {
+
+            // 1) 커넥터 설정
+
+            Class.forName("com.mysql.jdbc.Driver");
+
+            System.out.println("1.커넥터 설정 OK");
+
+​
+
+            // 2) db연결
+
+            Connection con = DriverManager.getConnection(url, user, password);
+
+            System.out.println("2. db연결 OK");
+
+​
+
+            // 3) sql문 결정
+
+            String id = JOptionPane.showInputDialog("삽입할 id 입력");
+
+            String tel = JOptionPane.showInputDialog("삽입할 전화번호 입력");
+
+​
+
+            String sql = "update member set tel = ? where id = ?"; //tel이 첫번째, id가 2로 입력되는 컴퓨터! (순서대로)
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, tel); 
+
+            ps.setString(2, id);
+
+            System.out.println("3. sql문 결정 OK");
+
+​
+
+            // 4) sql문 전송
+
+            ps.executeUpdate();
+
+            System.out.println("4. sql문 전송 OK");
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package db연결;
+
+​
+
+import javax.swing.JFrame;
+
+import javax.swing.JButton;
+
+import java.awt.BorderLayout;
+
+import java.awt.Font;
+
+import java.awt.event.ActionListener;
+
+import java.awt.event.ActionEvent;
+
+​
+
+public class 회원가입 {
+
+​
+
+    public static void main(String[] args) {
+
+        JFrame f = new JFrame() ;
+
+        f.setSize(500, 500);
+
+        
+
+        JButton btnNewButton = new JButton("\uD68C\uC6D0\uAC00\uC785");
+
+        btnNewButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                //회원가입 처리
+
+                db처리 db = new db처리();
+
+                db.insert();
+
+            }
+
+        });
+
+        btnNewButton.setFont(new Font("맑은 고딕", Font.PLAIN, 73));
+
+        f.getContentPane().add(btnNewButton, BorderLayout.NORTH);
+
+        
+
+        JButton btnNewButton_1 = new JButton("\uD68C\uC6D0\uD0C8\uD1F4");
+
+        btnNewButton_1.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                db처리 db = new db처리();
+
+                db.delete();
+
+            }
+
+        });
+
+        btnNewButton_1.setFont(new Font("맑은 고딕", Font.PLAIN, 73));
+
+        f.getContentPane().add(btnNewButton_1, BorderLayout.SOUTH);
+
+        
+
+        JButton btnNewButton_2 = new JButton("DB\uC5F0\uACB0");
+
+        btnNewButton_2.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                db처리 db = new db처리();
+
+                db.connect();
+
+            }
+
+        });
+
+        btnNewButton_2.setFont(new Font("맑은 고딕", Font.PLAIN, 48));
+
+        f.getContentPane().add(btnNewButton_2, BorderLayout.CENTER);
+
+        
+
+        JButton btnNewButton_3 = new JButton("\uD68C\uC6D0\uC218\uC815");
+
+        btnNewButton_3.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                db처리 db = new db처리();
+
+                db.update();
+
+            }
+
+        });
+
+        btnNewButton_3.setFont(new Font("맑은 고딕", Font.PLAIN, 48));
+
+        f.getContentPane().add(btnNewButton_3, BorderLayout.EAST);
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        f.setVisible(true);
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package db연결;
+
+​
+
+import javax.swing.JFrame;
+
+import javax.swing.JButton;
+
+import java.awt.BorderLayout;
+
+import java.awt.Font;
+
+import java.awt.event.ActionListener;
+
+import java.awt.event.ActionEvent;
+
+​
+
+public class 회원가입2 {
+
+​
+
+    public static void main(String[] args) {
+
+        JFrame f = new JFrame() ;
+
+        f.setSize(500, 500);
+
+        
+
+        JButton btnNewButton = new JButton("\uD68C\uC6D0\uAC00\uC785");
+
+        btnNewButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                가입창 sign = new 가입창();
+
+                sign.signIn();
+
+            }
+
+        });
+
+        btnNewButton.setFont(new Font("맑은 고딕", Font.PLAIN, 73));
+
+        f.getContentPane().add(btnNewButton, BorderLayout.NORTH);
+
+        
+
+        JButton btnNewButton_1 = new JButton("\uD68C\uC6D0\uD0C8\uD1F4");
+
+        btnNewButton_1.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                db처리 db = new db처리();
+
+                db.delete();
+
+            }
+
+        });
+
+        btnNewButton_1.setFont(new Font("맑은 고딕", Font.PLAIN, 73));
+
+        f.getContentPane().add(btnNewButton_1, BorderLayout.SOUTH);
+
+        
+
+        JButton btnNewButton_2 = new JButton("DB\uC5F0\uACB0");
+
+        btnNewButton_2.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                db처리 db = new db처리();
+
+                db.connect();
+
+            }
+
+        });
+
+        btnNewButton_2.setFont(new Font("맑은 고딕", Font.PLAIN, 48));
+
+        f.getContentPane().add(btnNewButton_2, BorderLayout.CENTER);
+
+        
+
+        JButton btnNewButton_3 = new JButton("\uD68C\uC6D0\uC218\uC815");
+
+        btnNewButton_3.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                db처리 db = new db처리();
+
+                db.update();
+
+            }
+
+        });
+
+        btnNewButton_3.setFont(new Font("맑은 고딕", Font.PLAIN, 48));
+
+        f.getContentPane().add(btnNewButton_3, BorderLayout.EAST);
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        f.setVisible(true);
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package db연결;
+
+​
+
+import javax.swing.JFrame;
+
+import javax.swing.JLabel;
+
+import java.awt.Font;
+
+import javax.swing.JTextField;
+
+import javax.swing.JButton;
+
+import java.awt.Color;
+
+import java.awt.event.ActionListener;
+
+import java.awt.event.ActionEvent;
+
+​
+
+public class 가입창 {
+
+    private static JTextField textField;
+
+    private static JTextField textField_1;
+
+    private static JTextField textField_2;
+
+    private static JTextField textField_3;
+
+    
+
+    /**
+
+     * @wbp.parser.entryPoint
+
+     */
+
+    public void signIn() { // 회원가입 창 뜨게 하기
+
+        JFrame f = new JFrame();
+
+        f.getContentPane().setBackground(new Color(0, 255, 0));
+
+        f.setSize(500, 500);
+
+        f.getContentPane().setLayout(null);
+
+        
+
+        JLabel t1 = new JLabel("\uC544\uC774\uB514");
+
+        t1.setFont(new Font("맑은 고딕", Font.PLAIN, 24));
+
+        t1.setBounds(56, 37, 97, 62);
+
+        f.getContentPane().add(t1);
+
+        
+
+        JLabel t2 = new JLabel("\uD328\uC2A4\uC6CC\uB4DC");
+
+        t2.setFont(new Font("맑은 고딕", Font.PLAIN, 24));
+
+        t2.setBounds(56, 109, 97, 62);
+
+        f.getContentPane().add(t2);
+
+        
+
+        textField = new JTextField();
+
+        textField.setForeground(new Color(0, 0, 0));
+
+        textField.setBounds(207, 49, 205, 51);
+
+        f.getContentPane().add(textField);
+
+        textField.setColumns(10);
+
+        
+
+        textField_1 = new JTextField();
+
+        textField_1.setForeground(new Color(0, 0, 0));
+
+        textField_1.setColumns(10);
+
+        textField_1.setBounds(207, 121, 205, 51);
+
+        f.getContentPane().add(textField_1);
+
+        
+
+        JLabel t3 = new JLabel("\uC774\uB984");
+
+        t3.setFont(new Font("맑은 고딕", Font.PLAIN, 24));
+
+        t3.setBounds(56, 181, 97, 62);
+
+        f.getContentPane().add(t3);
+
+        
+
+        textField_2 = new JTextField();
+
+        textField_2.setForeground(new Color(0, 0, 0));
+
+        textField_2.setColumns(10);
+
+        textField_2.setBounds(207, 264, 205, 51);
+
+        f.getContentPane().add(textField_2);
+
+        
+
+        textField_3 = new JTextField();
+
+        textField_3.setForeground(new Color(0, 0, 0));
+
+        textField_3.setColumns(10);
+
+        textField_3.setBounds(207, 192, 205, 51);
+
+        f.getContentPane().add(textField_3);
+
+        
+
+        JLabel t4 = new JLabel("\uC804\uD654\uBC88\uD638");
+
+        t4.setFont(new Font("맑은 고딕", Font.PLAIN, 24));
+
+        t4.setBounds(56, 253, 97, 62);
+
+        f.getContentPane().add(t4);
+
+        
+
+        JButton btnNewButton = new JButton("\uD68C\uC6D0\uAC00\uC785\uCC98\uB9AC");
+
+        btnNewButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                String id = t1.getText();
+
+                String pw = t2.getText();
+
+                String name = t3.getText();
+
+                String tel = t4.getText();
+
+                
+
+                db처리 db = new db처리();
+
+                db.insert(id, pw, name, tel);
+
+            }
+
+        });
+
+        btnNewButton.setBackground(new Color(255, 255, 0));
+
+        btnNewButton.setFont(new Font("맑은 고딕", Font.PLAIN, 54));
+
+        btnNewButton.setBounds(52, 338, 360, 75);
+
+        f.getContentPane().add(btnNewButton);
+
+        
+
+        
+
+        f.setVisible(true);
+
+        
+
+        
+
+    }
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
