@@ -1,0 +1,875 @@
+package 클래스만들기;
+
+​
+
+import java.util.Iterator;
+
+​
+
+public class 값전달 {
+
+    public void add(int x) { //값 전달 = call-by-value 라고 부름
+
+        System.out.println("전달 받음 " + x);
+
+    }
+
+//call-by-value:
+
+//  메소드를 호출할 때 입력값으로 기본형이 들어가는 경우  //기본형 변수 : 정수 실수 문자 부울렌
+
+//  메모리 상으로는 기본형의 "값"이 복사됨
+
+//call-by-reference:
+
+//  메소드를 호출할 때 입력값으로 참조형이 들어가는 변수
+
+//  메모리 상으로는 참조형의 "주소"가 복사됨
+
+//  (배열인 경우 얇은 복사)
+
+//
+
+//add("홍길동", 1)
+
+//  __1__  __2__ : 1(주소전달), 2(값전달) //스트링은 주소로 전달됨 //홍길동은 val ? ref?
+
+    
+
+    public void add(int[] x) { //주소 전달 = call-by-reference 라고 부름
+
+        System.out.println("전달 받음 ");
+
+        for (int a : x) {
+
+            System.out.print(a + " ");
+
+        }
+
+    }
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 클래스만들기;
+
+​
+
+public class 값전달사용 {
+
+​
+
+    public static void main(String[] args) {
+
+        값전달 move = new 값전달();
+
+        
+
+        int value = 100;
+
+        move.add(value); //값 전달
+
+        
+
+        int[] refer = {100,99,88};
+
+        move.add(refer); //주소 전달
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 클래스만들기;
+
+​
+
+public class 계산기 {
+
+    //사칙연산
+
+    public int mul(int count) {
+
+        //매개변수, 지역변수, 값을 전달(call by value)
+
+        System.out.println("곱하기 처리");
+
+        int price = 5000;
+
+        int sum = price * count;
+
+        //System.out.println("당신이 지불할 금액 총액은 " + sum + "원");
+
+        return sum; //반환할 변수를 지정
+
+    }
+
+    
+
+    //void: '없는' 라는 뜻. 리턴이 없다.
+
+    public int add(int waffle, int coffee) {
+
+        System.out.println("더하기 처리");
+
+        int count = coffee + waffle;
+
+        System.out.println("총 주문 개수: " + count + "개");
+
+        return count; //그렇지만 void를 해당 타입으로 (int로) 바꾸면 return할 수 있음. 값을 남겨 가진다는 의미
+
+    }
+
+    
+
+    
+
+    
+
+    
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 클래스만들기;
+
+​
+
+public class 계산기사용 {
+
+​
+
+    public static void main(String[] args) {
+
+        업그레이드계산기 cal = new 업그레이드계산기();
+
+        
+
+        //호출한 메소드가 void가 들어간 경우 => 프린트 불가.
+
+        //return이 있는 경우만 프린트 가능.
+
+        System.out.println(cal.add(100, 200));
+
+        System.out.println(cal.add(100, 22.1));
+
+        System.out.println(cal.add(11.1, 22.1));
+
+​
+
+        System.out.println(cal.add("길동", "홍"));
+
+        System.out.println(cal.add("메가", 1));
+
+        for (int i = 0; i < cal.add().length; i++) {
+
+            System.out.println(cal.add()[i]);
+
+        }
+
+        
+
+        int[] jumsu = cal.add(); //주소
+
+        for (int x : jumsu) {
+
+            System.out.print(x + " ");
+
+        }
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 클래스만들기;
+
+​
+
+import java.io.FileWriter;
+
+​
+
+import org.jsoup.Connection;
+
+import org.jsoup.Jsoup;
+
+import org.jsoup.nodes.Document;
+
+import org.jsoup.select.Elements;
+
+​
+
+public class 네이버메인크롤링 {
+
+​
+
+    public static void main(String[] args) {
+
+        
+
+        try {
+
+            Connection con = Jsoup.connect("http://www.naver.com");
+
+//          System.out.println(con);
+
+            Document doc = con.get();
+
+//          System.out.println(doc); //이렇게 가져와서 필요한 정보를 쓰믄 됨
+
+            Elements list = doc.select("span.an_txt");
+
+            System.out.println(list.size());
+
+            System.out.println(list.get(0).text());
+
+            System.out.println(list.get(1).text());
+
+            System.out.println("-----------------");
+
+//          for (int i = 0; i < list.size(); i++) {
+
+//              System.out.println(list.get(i).text());
+
+//          }
+
+            String[] contents = new String[list.size()];    
+
+            for (int i = 0; i < contents.length; i++) {
+
+                contents[i] = list.get(i).text();
+
+            }
+
+            for (String s : contents) {
+
+                System.out.print(s + " ");
+
+            }
+
+            
+
+            System.out.println("");
+
+            System.out.println("-----------------");
+
+            Elements list1 = doc.select("span .td_t");
+
+            System.out.println(list1.size());
+
+            
+
+            
+
+            
+
+            
+
+            FileWriter file = new FileWriter("naver.txt");
+
+            for (String s : contents) {
+
+                file.write(s + "\n");
+
+            }
+
+            
+
+//          file.write("hello" + "\n");
+
+//          file.write("bye" + "\n");
+
+            
+
+            file.close();
+
+            
+
+            
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+        
+
+        //Document doc = Jsoup.connect("http://www.naver.com").get(); //체인식 코드. 편하지만 많은 체인을 연결하는건 지저분해져 조심.
+
+        
+
+        
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 클래스만들기;
+
+​
+
+import org.jsoup.Connection;
+
+import org.jsoup.Jsoup;
+
+import org.jsoup.nodes.Document;
+
+import org.jsoup.select.Elements;
+
+​
+
+public class 멜론크롤링 {
+
+​
+
+    public static void main(String[] args) {
+
+        try {
+
+            Connection con = Jsoup.connect("https://www.melon.com/chart/index.htm");
+
+            //멜론 코드 불러오기, con에는 연결하는 주소값이 들어가 있음
+
+            Document doc = con.get();
+
+//          con주소값으로 접근하여 코드 전체를 문서(document)로 가져오기 -> doc 변수로 정의
+
+            Elements list = doc.select(".ellipsis.rank01 span a"); //.은 클래스 안에 있는 내용을 검색 . "" 안에
+
+            Elements list2 = doc.select(".rank02 span a"); // ".클래스이름 하위태그앞글자 하위태그앞글자" 이렇게 위치 탐색
+
+            Elements list3 = doc.select(".image_typeAll img");
+
+            Elements list4 = doc.select(".rank03 a");
+
+​
+
+            //TOP100 노래제목, 가수, 커버 이미지, 앨범명 추출
+
+            System.out.println(list.size());   //100 나옴!
+
+            System.out.println(list2.size());   //100 나옴!
+
+            System.out.println("-----------------------");
+
+            for (int i = 0; i < list.size(); i++) {
+
+                System.out.println(list.get(i).text());
+
+            //<a>와 </a> 사이에 있는 텍스트 추출하여 프린트
+
+            }
+
+            System.out.println("-----------------------");
+
+            System.out.println(list2);
+
+            for (int i = 0; i < list2.size(); i++) {
+
+                System.out.println(list2.get(i).text());
+
+            }
+
+            System.out.println("-----------------------");
+
+            for (int i = 0; i < list3.size(); i++) {
+
+                System.out.println(list3.get(i).attr("src"));
+
+            }
+
+            System.out.println("-----------------------");
+
+            for (int i = 0; i < list4.size(); i++) {
+
+                System.out.println(list4.get(i).text());
+
+            }
+
+        
+
+            
+
+        } catch (Exception e) {
+
+        }
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 클래스만들기;
+
+​
+
+import java.io.IOException;
+
+​
+
+import org.jsoup.Connection;
+
+import org.jsoup.Jsoup;
+
+import org.jsoup.nodes.Document;
+
+import org.jsoup.select.Elements;
+
+​
+
+public class 멜론크롤링2 {
+
+​
+
+    public static void main(String[] args) {
+
+        try {
+
+            Connection con = Jsoup.connect("https://www.melon.com/chart/age/index.htm?chartType=YE&chartGenre=KPOP&chartDate=2016");
+
+            Document doc = con.get();
+
+            Elements list = doc.select(".rank01 span a "); //.은 클래스 안에 있는 내용을 검색 "" 안에
+
+//          System.out.println(list.size());   //100 나옴!
+
+            System.out.println(list);
+
+            for (int i = 0; i < list.size(); i++) {
+
+                System.out.println(list.get(i).text());
+
+            }
+
+            
+
+        } catch (Exception e) {
+
+        }
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 클래스만들기;
+
+​
+
+public class 배열의복사 {
+
+​
+
+    public static void main(String[] args) {
+
+        int a = 100;
+
+        int b = a;// 변수의 복사
+
+        System.out.println("a: " + a);
+
+        System.out.println("b: " + b);
+
+        a = 200;
+
+        System.out.println("--------");
+
+        System.out.println("a: " + a);
+
+        System.out.println("b: " + b);
+
+        System.out.println();
+
+        
+
+        int[] x = {1,2,3,4,5};
+
+        int[] y = x; //배열의 복사
+
+        
+
+        for (int i : x) {
+
+            System.out.print(i + " ");
+
+        }
+
+        System.out.println();
+
+    
+
+        for (int i : y) {
+
+            System.out.print(i + " ");
+
+        }
+
+        System.out.println();
+
+        System.out.println("-----------");
+
+        
+
+        x[0] = 9; //배열은 변수와 달리 완전한 복사가 됨. 이는 주소값을 복사했기 때문임. = 얕은 복사
+
+        
+
+        for (int i : x) {
+
+            System.out.print(i + " ");
+
+        }
+
+        System.out.println();
+
+    
+
+        for (int i : y) {
+
+            System.out.print(i + " ");
+
+        }
+
+        System.out.println();
+
+        System.out.println("-----------");
+
+        System.out.println();
+
+  
+
+        
+
+        int[] z = x.clone(); //깊은 복사
+
+        
+
+        x[0] = 8;
+
+        
+
+        for (int i : x) {
+
+            System.out.print(i + " ");
+
+        }
+
+        System.out.println();
+
+    
+
+        for (int i : z) {
+
+            System.out.print(i + " ");
+
+        }
+
+        System.out.println();
+
+        System.out.println("-----------");
+
+        System.out.println();
+
+        
+
+        System.out.println(x);
+
+        System.out.println(y); //주소값만 가져온 얕은 복사
+
+        System.out.println(z); //주소값이 다른걸 확인할 수 있음, 깊은 복사
+
+​
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 클래스만들기;
+
+​
+
+public class 배열입력 {
+
+​
+
+    
+
+    //argv: 매개변수(parameter, 인자)
+
+    //변수 안에 들어가는 값, 주소: (argument, 인수)
+
+    public static void main(String[] fruit) { //args = argument
+
+        for (String x : fruit) {
+
+            System.out.println(x);
+
+        }
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 클래스만들기;
+
+​
+
+public class 업그레이드계산기 {
+
+    public int add(int x, int y) {
+
+        return x + y;
+
+    }
+
+    
+
+    public double add(int x, double y) { //메소드 이름이 같아도 됨. int int면 위에 것이, int double이면 아래 것이 호출 됨. 파이썬은 이름 다르게 만들어야함.
+
+        return x + y;
+
+    }
+
+    
+
+    public double add(double x, double y) { //void 말고 변수 타입 지정해놓고 return 안하면 에러 발생함. 무조건 리턴해줘야함. 
+
+        return x + y;
+
+    }
+
+    
+
+    public String add(String firstName, String lastName) {
+
+        return firstName + lastName;
+
+    }
+
+    public String add(String company, int field) { //하나라도 스트링이면 전체는 스트링
+
+        return company + field;
+
+    }
+
+    public int[] add() { //리턴할 배열 타입을 지정
+
+        int[] jumsu = {100, 99, 88};
+
+        return jumsu;
+
+    }
+
+    
+
+    
+
+    
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 클래스만들기;
+
+​
+
+import java.util.Scanner;
+
+​
+
+public class 카페 {
+
+​
+
+    public static void main(String[] args) {
+
+        계산기 cal = new 계산기();
+
+        Scanner sc = new Scanner(System.in);
+
+        
+
+        System.out.print("커피 주문 개수: "); //5000
+
+        int coffee = sc.nextInt();
+
+        System.out.print("와플 주문 개수: "); //5000
+
+        int waffle = sc.nextInt();
+
+        
+
+        int count = cal.add(coffee, waffle);
+
+        int sum = cal.mul(count);
+
+        
+
+        //vip인 경우, 할인해주어야 함.
+
+        System.out.print("당신은 vip인가요? 예)1, 아니요)2" );
+
+        String vip = sc.next(); 
+
+        if (vip.equals("1")) {
+
+            //vip인 경우, 4만원 이상일 경우 5천원 할인
+
+            if (sum >= 40000) {
+
+                System.out.println("vip님의 금액은 " + (sum-5000) + "원 입니다");
+
+            } else {
+
+                System.out.println("vip님의 금액은 " + sum + "원 입니다");
+
+            }
+
+        } else { //vip가 아닌 경우
+
+            System.out.println("회원님의 금액은 " + sum + "원 입니다");
+
+        }
+
+    }
+
+​
+
+}
+
+​
