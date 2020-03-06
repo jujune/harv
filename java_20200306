@@ -1,0 +1,293 @@
+package 클래스만들기;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+import javax.swing.JTextField;
+
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+public class 주식크롤링 {
+	Elements list = null; //전역변수, 전체 표 크롤링 결과
+	
+	//전체 표 크롤링
+	public String[] enter() {
+		String[] company = new String[5];
+		try {
+			Connection con = Jsoup.connect("https://finance.naver.com/sise/lastsearch2.nhn"); //페이지 불러오기
+			Document doc = con.get(); 
+			list = doc.select("tr td"); // 순위 정보, 주식 정보를 포함한 모든 정보 크롤링
+			
+//			Elements list = doc.select("tr td"); 			
+
+			int start = 32; //32번줄 부터 삼성전자 1위 시작
+			int j = 0; // 배열의 index값 지정
+
+			for (int i = 32; i < start + 60; i = i + 12) {
+				company[j] = list.get(i).text(); // company배열에 회사명 top5 회사명을 추출
+				j++;
+			}
+//			for (String s : company) {
+//				System.out.println(s);
+//			}
+
+		} catch (Exception e) {
+		}
+		return company; //top5 회사 배열을 return
+	}
+
+	
+	public String[] info(int index) { //회사 인덱스 값을 입력해줘야 실행되는 되는 부품
+		String[] result = new String[5]; //결과 담아 보내줄 배열.
+		int j = 0; //result배열의 index값 설정
+		
+		for (int i = index + 1; i < index + 6; i++) { //입력된 인덱스값 +1 부터 +5까지 정보들 호출
+			result[j] = list.get(i).text(); // 배열에 입력
+			j++;
+		}		
+		return result;
+	}
+	
+	public void file() {
+		try {
+			String[] contents = new String[35]; //
+			
+			FileWriter file = new FileWriter("stock.txt"); //왜 4개 밖에 정보가 안들어가지..?
+			
+			int k = 0;
+			for (int j = 0; j < 5; j++) {
+				for (int i = 0; i < 6; i++) {
+					contents[k] = list.get(12*j + 32 + i).text();				
+					k++;
+			}
+				}
+			
+			for (int i = 0; i < 30; i++) {
+				file.write(contents[i] + "\n");
+			}
+
+			file.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	
+	}
+}
+
+
+
+
+
+
+package 클래스만들기;
+
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+
+public class 주식UI {
+	private static JTextField t1;
+	private static JTextField t2;
+	private static JTextField t3;
+	private static JTextField t4;
+	private static JTextField t5;
+
+	public static void main(String[] args) {
+		
+		JFrame f = new JFrame();
+		f.setSize(729, 393);
+		f.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("국내증시 인기 검색 종목");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		lblNewLabel.setBounds(49, 0, 231, 66);
+		f.getContentPane().add(lblNewLabel);
+		
+		주식크롤링 ent = new 주식크롤링();
+		String[] result = ent.enter();
+				
+				
+					
+		 //배열 생성을 for문으로 만들 수 없을까??? String[] result i 처럼 -> 안된다...
+		
+		JButton b1 = new JButton(result[0]);
+		b1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[] result1 = ent.info(32);
+				t1.setText(result1[0]);
+				t2.setText(result1[1]);
+				t3.setText(result1[2]);
+				t4.setText(result1[3]);
+				t5.setText(result1[4]);
+			}
+		});
+		b1.setBounds(49, 71, 231, 44);
+		f.getContentPane().add(b1);
+		
+		
+		JButton b2 = new JButton(result[1]);
+		b2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[] result2 = ent.info(44);
+				t1.setText(result2[0]);
+				t2.setText(result2[1]);
+				t3.setText(result2[2]);
+				t4.setText(result2[3]);
+				t5.setText(result2[4]);
+			}
+		});
+		b2.setBounds(49, 120, 231, 44);
+		f.getContentPane().add(b2);
+		
+		JButton b3 = new JButton(result[2]);
+		b3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[] result3 = ent.info(56);
+				t1.setText(result3[0]);
+				t2.setText(result3[1]);
+				t3.setText(result3[2]);
+				t4.setText(result3[3]);
+				t5.setText(result3[4]);
+			}
+		});
+		b3.setBounds(49, 169, 231, 44);
+		f.getContentPane().add(b3);
+		
+		JButton b4 = new JButton(result[3]);
+		b4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[] result4 = ent.info(68);
+				t1.setText(result4[0]);
+				t2.setText(result4[1]);
+				t3.setText(result4[2]);
+				t4.setText(result4[3]);
+				t5.setText(result4[4]);
+			}
+		});
+		b4.setBounds(49, 220, 231, 44);
+		f.getContentPane().add(b4);
+		
+		JButton b5 = new JButton(result[4]);
+		b5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String[] result5 = ent.info(80);
+				t1.setText(result5[0]);
+				t2.setText(result5[1]);
+				t3.setText(result5[2]);
+				t4.setText(result5[3]);
+				t5.setText(result5[4]);
+			}
+		});
+		b5.setBounds(49, 269, 231, 44);
+		f.getContentPane().add(b5);
+
+		
+		
+		JLabel lblNewLabel_1 = new JLabel("1");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(0, 71, 43, 44);
+		f.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("2");
+		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_1.setBounds(0, 120, 43, 44);
+		f.getContentPane().add(lblNewLabel_1_1);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("3");
+		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_2.setBounds(0, 169, 43, 44);
+		f.getContentPane().add(lblNewLabel_1_2);
+		
+		JLabel lblNewLabel_1_3 = new JLabel("4");
+		lblNewLabel_1_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_3.setBounds(0, 220, 43, 44);
+		f.getContentPane().add(lblNewLabel_1_3);
+		
+		JLabel lblNewLabel_1_4 = new JLabel("5");
+		lblNewLabel_1_4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_4.setBounds(0, 269, 43, 44);
+		f.getContentPane().add(lblNewLabel_1_4);
+		
+		JLabel lblNewLabel_2 = new JLabel("검색 비율");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(315, 58, 123, 44);
+		f.getContentPane().add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("현재가");
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setBounds(315, 112, 123, 44);
+		f.getContentPane().add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_2_1_1 = new JLabel("등락률");
+		lblNewLabel_2_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1_1.setBounds(315, 220, 123, 44);
+		f.getContentPane().add(lblNewLabel_2_1_1);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("전일비");
+		lblNewLabel_2_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_2.setBounds(315, 166, 123, 44);
+		f.getContentPane().add(lblNewLabel_2_2);
+		
+		JLabel lblNewLabel_2_3 = new JLabel("거래량");
+		lblNewLabel_2_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_3.setBounds(315, 274, 123, 44);
+		f.getContentPane().add(lblNewLabel_2_3);
+		
+		t1 = new JTextField();
+		t1.setBounds(473, 58, 193, 45);
+		f.getContentPane().add(t1);
+		t1.setColumns(10);
+		
+		t2 = new JTextField();
+		t2.setColumns(10);
+		t2.setBounds(473, 112, 193, 45);
+		f.getContentPane().add(t2);
+		
+		t3 = new JTextField();
+		t3.setColumns(10);
+		t3.setBounds(473, 166, 193, 45);
+		f.getContentPane().add(t3);
+		
+		t4 = new JTextField();
+		t4.setColumns(10);
+		t4.setBounds(473, 220, 193, 45);
+		f.getContentPane().add(t4);
+		
+		t5 = new JTextField();
+		t5.setColumns(10);
+		t5.setBounds(473, 274, 193, 45);
+		f.getContentPane().add(t5);
+		
+		JButton btnNewButton = new JButton("저장");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ent.file();
+			}
+		});
+		btnNewButton.setBounds(569, 4, 97, 44);
+		f.getContentPane().add(btnNewButton);
+		
+	
+			f.setVisible(true);
+			
+	}
+}
+
