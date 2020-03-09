@@ -1,0 +1,516 @@
+
+package 배열로전달;
+
+​
+
+public class 배열 {
+
+    
+
+    public void call(String[] list) {
+
+        System.out.println("첫번째 값은 " + list[0]);
+
+        System.out.println("첫번째 값은 " + list[1]);
+
+    }
+
+    
+
+    //메소드 오버로딩(다형성)
+
+    //하나의 이름으로 오버해서 불러쓰고 있다. (하나의 이름으로 입력값이 다양한 형태를 쓰고 있다)
+
+    public String[] call() {
+
+        System.out.println("call 메소드 호출됨");
+
+        String hobby = "달리기";
+
+        String company = "mega";
+
+        String[] array = {hobby, company};
+
+        return array;
+
+        
+
+//      return hobby, company; //파이썬에서만 가능
+
+        //리턴할 떄는 변수들을 하나씩 보낼 수 없다.
+
+        //무조건 하나로 묶어줘야 함.
+
+    }   
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 변수로전달;
+
+​
+
+public class 변수 {
+
+    
+
+    //메소드 오버로딩(다형성)
+
+    //하나의 이름으로 오버해서 불러쓰고 있다. (하나의 이름으로 입력값이 다양한 형태를 쓰고 있다)
+
+    public void call() {
+
+        System.out.println("call 메소드 호출됨");
+
+        String hobby = "달리기";
+
+        String company = "mega";
+
+//      String[] array = {hobby, company};
+
+//      return array;
+
+//      return hobby, company; //파이썬에서만 가능
+
+        //리턴할 떄는 변수들을 하나씩 보낼 수 없다.
+
+        //무조건 하나로 묶어줘야 함.
+
+    }
+
+    
+
+    public void call(String name, int age) {
+
+        System.out.println("전달 받음." + "이름은 " + name);
+
+        System.out.println("전달 받음." + "나이는 " + name);
+
+    }
+
+​
+
+    public String call2() {
+
+        return "ok";
+
+    }
+
+    
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 변수로전달;
+
+​
+
+import java.awt.Font;
+
+import java.awt.GridLayout;
+
+import java.awt.event.ActionEvent;
+
+import java.awt.event.ActionListener;
+
+​
+
+import javax.swing.JButton;
+
+import javax.swing.JFrame;
+
+import javax.swing.JOptionPane;
+
+​
+
+import 배열로전달.배열;
+
+import 클래스로전달.Bag;
+
+import 클래스로전달.클래스;
+
+​
+
+public class Main {
+
+​
+
+    public static void main(String[] args) {
+
+        JFrame f = new JFrame();
+
+        f.setSize(474, 427);
+
+        f.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
+
+        
+
+        JButton btnNewButton = new JButton("변수로 전달");
+
+        btnNewButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                String name = "홍길동";
+
+                int age = 100;
+
+                변수 var = new 변수();
+
+                //메소드 이름은 똑같은 이름으로 여러개 만들 수 있따.
+
+                //구분은 입력값으로 한다.
+
+                //메소드 호출할 때는 입력되는 데이터의 타입, 순서, 개수를 체크한다. 동일한 경우만 호출!
+
+                var.call(name, age);
+
+                String result = var.call2();
+
+                JOptionPane.showMessageDialog(null, "받은 결과값 " + result);
+
+            }
+
+        });
+
+        btnNewButton.setFont(new Font("맑은 고딕", Font.BOLD, 17));
+
+        f.getContentPane().add(btnNewButton);
+
+        
+
+        JButton btnNewButton_1 = new JButton("배열로 전달");
+
+        btnNewButton_1.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                배열 ar = new 배열(); // 다른 패키지에 있을 경우 ctrl+shift+o //자동import
+
+                String[] result = ar.call();
+
+                JOptionPane.showMessageDialog(null, "취미는 " + result[0]);
+
+                JOptionPane.showMessageDialog(null, "회사는 " + result[1]);
+
+                
+
+                String[] list = {"달리기", "자전거 타기"};
+
+                ar.call(list);
+
+            }
+
+        });
+
+        btnNewButton_1.setFont(new Font("맑은 고딕", Font.BOLD, 17));
+
+        f.getContentPane().add(btnNewButton_1);
+
+        
+
+        JButton btnNewButton_2 = new JButton("클래스로 전달");
+
+        btnNewButton_2.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                Bag c = new Bag();
+
+                c.setId("hong");
+
+                c.setPw("hong");
+
+                c.setName("홍길동");
+
+                c.setAge(100);
+
+                
+
+                클래스 클 = new 클래스();
+
+                클.call(c);
+
+            }
+
+        });
+
+        btnNewButton_2.setFont(new Font("맑은 고딕", Font.BOLD, 17));
+
+        f.getContentPane().add(btnNewButton_2);
+
+        
+
+        JButton btnNewButton_3 = new JButton("컬렉션으로 전달");
+
+        btnNewButton_3.setFont(new Font("맑은 고딕", Font.BOLD, 17));
+
+        f.getContentPane().add(btnNewButton_3);
+
+        
+
+        
+
+        
+
+        
+
+        f.setVisible(true);
+
+        
+
+        
+
+        
+
+    }
+
+​
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 클래스로전달;
+
+​
+
+public class Bag {
+
+    //여러개의 데이터를 한 번에 묶어서 전송하려고!
+
+    //Data Transfer Object (DTO) 혹은 Value Object (VO)
+
+    public String id;
+
+    public String pw;
+
+    public String name;
+
+    public int age;
+
+    
+
+    //Source -> Generate Getters and Setters
+
+    public String getId() {
+
+        return id;
+
+    }
+
+    public void setId(String id) {
+
+        this.id = id;
+
+    }
+
+    public String getPw() {
+
+        return pw;
+
+    }
+
+    public void setPw(String pw) {
+
+        this.pw = pw;
+
+    }
+
+    public String getName() {
+
+        return name;
+
+    }
+
+    public void setName(String name) {
+
+        this.name = name;
+
+    }
+
+    public int getAge() {
+
+        return age;
+
+    }
+
+    public void setAge(int age) {
+
+        this.age = age;
+
+    }
+
+​
+
+​
+
+    
+
+    
+
+    
+
+//  public void setId(String id)    {
+
+//      //id = id; //지역변수와 전역변수가 같으면 가까운 아이를 가져다 쓴다. 이 코드는 나는 나다 라고 하는 것.
+
+//      this.id = id; //this는 이 클래스를 말한다. 충돌이 날 것 같을 때 this를 서줌
+
+//  }
+
+    
+
+​
+
+    
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 클래스로전달;
+
+​
+
+public class Bag3 {
+
+    public String code;
+
+    public String name;
+
+    public String content;
+
+    public int price;
+
+    public String company;
+
+    
+
+//  Bag3 bag3 = new Bag3(); //6개의 변수가 생성됨.
+
+//  bag3에는 주소
+
+//  code, name, content, company에는 null, price에는 0
+
+    
+
+    
+
+    public String getCode() {
+
+        return code;
+
+    }
+
+    public void setCode(String code) {
+
+        this.code = code;
+
+    }
+
+    public String getName() {
+
+        return name;
+
+    }
+
+    public void setName(String name) {
+
+        this.name = name;
+
+    }
+
+    public String getContent() {
+
+        return content;
+
+    }
+
+    public void setContent(String content) {
+
+        this.content = content;
+
+    }
+
+    public int getPrice() {
+
+        return price;
+
+    }
+
+    public void setPrice(int price) {
+
+        this.price = price;
+
+    }
+
+    public String getCompany() {
+
+        return company;
+
+    }
+
+    public void setCompany(String company) {
+
+        this.company = company;
+
+    }
+
+    
+
+    
+
+    
+
+    
+
+}
+
+​
+
+​
+
+​
