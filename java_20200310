@@ -1,0 +1,1578 @@
+
+package 프로젝트;
+
+​
+
+import javax.swing.JFrame;
+
+import javax.swing.JLabel;
+
+import javax.swing.SwingConstants;
+
+import javax.swing.JPanel;
+
+import javax.swing.JPasswordField;
+
+import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+
+import java.awt.event.ActionEvent;
+
+import javax.swing.JTextArea;
+
+import java.awt.Color;
+
+import javax.swing.JTextField;
+
+import javax.swing.JComboBox;
+
+​
+
+public class Buying {
+
+​
+
+    public static void main(String[] args) {
+
+        JFrame f = new JFrame();
+
+        f.getContentPane().setBackground(Color.GREEN);
+
+        f.setSize(1000,800);
+
+        f.getContentPane().setLayout(null);
+
+        
+
+        JLabel lblNewLabel = new JLabel("구매 곡 정보");
+
+        lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+        lblNewLabel.setBounds(12, 32, 406, 57);
+
+        f.getContentPane().add(lblNewLabel);
+
+        
+
+        JPanel panel = new JPanel();
+
+        panel.setBounds(34, 88, 387, 555);
+
+        f.getContentPane().add(panel);
+
+        panel.setLayout(null);
+
+        
+
+        JLabel lblNewLabel_1 = new JLabel("커버");
+
+        lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+
+        lblNewLabel_1.setBounds(12, 10, 43, 42);
+
+        panel.add(lblNewLabel_1);
+
+        
+
+        JLabel lblNewLabel_1_1 = new JLabel("커버");
+
+        lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+
+        lblNewLabel_1_1.setBounds(12, 63, 43, 42);
+
+        panel.add(lblNewLabel_1_1);
+
+        
+
+        JLabel lblNewLabel_2 = new JLabel("아티스트 - 곡 명");
+
+        lblNewLabel_2.setBounds(67, 10, 210, 42);
+
+        panel.add(lblNewLabel_2);
+
+        
+
+        JLabel lblNewLabel_2_1 = new JLabel("아티스트 - 곡 명");
+
+        lblNewLabel_2_1.setBounds(67, 63, 210, 42);
+
+        panel.add(lblNewLabel_2_1);
+
+        
+
+        JLabel lblNewLabel_3 = new JLabel("총 10곡 X 800원 = 합계 8,000원");
+
+        lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+
+        lblNewLabel_3.setBounds(34, 668, 384, 57);
+
+        f.getContentPane().add(lblNewLabel_3);
+
+        
+
+        JLabel lblNewLabel_4 = new JLabel("결제방식");
+
+        lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
+
+        lblNewLabel_4.setBounds(465, 32, 142, 86);
+
+        f.getContentPane().add(lblNewLabel_4);
+
+        
+
+        JPanel panel_1 = new JPanel();
+
+        panel_1.setBackground(Color.WHITE);
+
+        panel_1.setBounds(478, 160, 462, 379);
+
+        panel_1.setLayout(null);
+
+​
+
+        f.getContentPane().add(panel_1);
+
+        
+
+        JButton btnNewButton = new JButton("카드");
+
+        btnNewButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                
+
+                panel_1.setBackground(Color.white);
+
+                
+
+                JLabel lblNewLabel_7 = new JLabel("카드사 선택");
+
+                lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
+
+                lblNewLabel_7.setBounds(12, 10, 102, 29);
+
+                panel_1.add(lblNewLabel_7);
+
+                
+
+                JLabel lblNewLabel_7_1 = new JLabel("카드번호 입력");
+
+                lblNewLabel_7_1.setHorizontalAlignment(SwingConstants.CENTER);
+
+                lblNewLabel_7_1.setBounds(12, 49, 102, 23);
+
+                panel_1.add(lblNewLabel_7_1);
+
+                
+
+                JLabel lblNewLabel_7_2 = new JLabel("유효기간");
+
+                lblNewLabel_7_2.setHorizontalAlignment(SwingConstants.CENTER);
+
+                lblNewLabel_7_2.setBounds(12, 88, 102, 29);
+
+                panel_1.add(lblNewLabel_7_2);
+
+                
+
+                JLabel lblNewLabel_7_3 = new JLabel("CVC");
+
+                lblNewLabel_7_3.setHorizontalAlignment(SwingConstants.CENTER);
+
+                lblNewLabel_7_3.setBounds(271, 88, 102, 29);
+
+                panel_1.add(lblNewLabel_7_3);
+
+                
+
+                JLabel lblNewLabel_7_4 = new JLabel("비밀번호");
+
+                lblNewLabel_7_4.setHorizontalAlignment(SwingConstants.CENTER);
+
+                lblNewLabel_7_4.setBounds(12, 127, 102, 29);
+
+                panel_1.add(lblNewLabel_7_4);
+
+            
+
+                JTextField textField = new JTextField();
+
+                textField.setBounds(137, 49, 65, 23);
+
+                panel_1.add(textField);
+
+                textField.setColumns(10);
+
+                
+
+                JTextField textField_1 = new JTextField();
+
+                textField_1.setColumns(10);
+
+                textField_1.setBounds(214, 49, 65, 23);
+
+                panel_1.add(textField_1);
+
+                
+
+                JTextField textField_2 = new JTextField();
+
+                textField_2.setColumns(10);
+
+                textField_2.setBounds(291, 49, 65, 23);
+
+                panel_1.add(textField_2);
+
+                
+
+                JTextField textField_3 = new JTextField();
+
+                textField_3.setColumns(10);
+
+                textField_3.setBounds(368, 49, 65, 23);
+
+                panel_1.add(textField_3);
+
+                
+
+                JTextField textField_4 = new JTextField();
+
+                textField_4.setColumns(10);
+
+                textField_4.setBounds(137, 92, 65, 21);
+
+                panel_1.add(textField_4);
+
+                
+
+                JTextField textField_5 = new JTextField();
+
+                textField_5.setColumns(10);
+
+                textField_5.setBounds(368, 92, 65, 21);
+
+                panel_1.add(textField_5);
+
+                
+
+                JPasswordField pw = new JPasswordField();
+
+                
+
+                JTextField textField_6 = new JTextField();
+
+                textField_6.setColumns(10);
+
+                textField_6.setBounds(137, 131, 33, 21);
+
+                panel_1.add(textField_6);
+
+                
+
+                String card[] = {"현대카드", "신한카드", "BC카드", "KB국민카드", "삼성카드", "우리카드", "카카오뱅크", "NH채움카드", "롯데카드", "하나카드"};
+
+                JComboBox comboBox = new JComboBox(card);
+
+                comboBox.setBounds(137, 14, 142, 23);
+
+                panel_1.add(comboBox);
+
+                
+
+                JLabel lblNewLabel_8 = new JLabel("**");
+
+                lblNewLabel_8.setBounds(175, 131, 27, 25);
+
+                panel_1.add(lblNewLabel_8);
+
+                
+
+                panel_1.revalidate(); //다시 일깨우는, 불러일으키는 역할
+
+                panel_1.repaint(); //위와 같음.. 
+
+            }
+
+        });
+
+        btnNewButton.setBounds(630, 32, 142, 86);
+
+        f.getContentPane().add(btnNewButton);
+
+        
+
+        JButton btnNewButton_1 = new JButton("무통장 입금");
+
+        btnNewButton_1.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                panel_1.setBackground(Color.white);
+
+                
+
+                JLabel lblNewLabel_7 = new JLabel("은행 선택");
+
+                lblNewLabel_7.setHorizontalAlignment(SwingConstants.CENTER);
+
+                lblNewLabel_7.setBounds(12, 10, 102, 29);
+
+                panel_1.add(lblNewLabel_7);
+
+                
+
+                JLabel lblNewLabel_7_2 = new JLabel("입금자 성명");
+
+                lblNewLabel_7_2.setHorizontalAlignment(SwingConstants.CENTER);
+
+                lblNewLabel_7_2.setBounds(12, 49, 102, 29);
+
+                panel_1.add(lblNewLabel_7_2);
+
+                
+
+                JLabel t1 = new JLabel("계좌번호 창");
+
+                t1.setHorizontalAlignment(SwingConstants.CENTER);
+
+                t1.setBounds(12, 127, 438, 88);
+
+                panel_1.add(t1);
+
+                
+
+                JTextField textField_4 = new JTextField();
+
+                textField_4.setColumns(10);
+
+                textField_4.setBounds(137, 53, 65, 21);
+
+                panel_1.add(textField_4);
+
+                
+
+                String card[] = {"현대카드", "신한카드", "BC카드", "KB국민카드", "삼성카드", "우리카드", "카카오뱅크", "NH채움카드", "롯데카드", "하나카드"};
+
+                JComboBox comboBox = new JComboBox(card);
+
+                comboBox.setBounds(137, 14, 142, 23);
+
+                panel_1.add(comboBox);
+
+                
+
+                JButton btnNewButton_3 = new JButton("개인용 가상계좌 생성");
+
+                btnNewButton_3.addActionListener(new ActionListener() {
+
+                    public void actionPerformed(ActionEvent e) {
+
+                    t1.setText("?" + "원을 입금해주세요."); 
+
+                    }
+
+                });
+
+                btnNewButton_3.setBounds(12, 281, 438, 88);
+
+                panel_1.add(btnNewButton_3);
+
+                
+
+                panel_1.revalidate(); //다시 일깨우는, 불러일으키는 역할
+
+                panel_1.repaint(); //위와 같음..
+
+            }
+
+        });
+
+        btnNewButton_1.setBounds(798, 32, 142, 86);
+
+        f.getContentPane().add(btnNewButton_1);
+
+        
+
+        JButton btnNewButton_2 = new JButton("결제 시도");
+
+        btnNewButton_2.setBounds(478, 575, 462, 68);
+
+        f.getContentPane().add(btnNewButton_2);
+
+        
+
+        JLabel lblNewLabel_6 = new JLabel("결제 결과");
+
+        lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
+
+        lblNewLabel_6.setBounds(478, 668, 430, 57);
+
+        f.getContentPane().add(lblNewLabel_6);
+
+        
+
+        
+
+        
+
+        f.setVisible(true);
+
+        
+
+    }
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 프로젝트;
+
+​
+
+import java.awt.Color;
+
+import java.awt.event.ActionEvent;
+
+import java.awt.event.ActionListener;
+
+​
+
+import javax.swing.JButton;
+
+import javax.swing.JFrame;
+
+import javax.swing.JLabel;
+
+import javax.swing.JTextField;
+
+import javax.swing.SwingConstants;
+
+​
+
+public class Comment {
+
+    private static JTextField textField;
+
+    private static JLabel hate1;
+
+​
+
+    static int like_count = 0;
+
+    static int hate_count = 0;
+
+    
+
+    public static void main(String[] args) {
+
+        
+
+        JFrame f = new JFrame();
+
+        f.setSize(1000,800);
+
+        f.getContentPane().setLayout(null);
+
+        
+
+        JLabel lblNewLabel_1 = new JLabel("총 댓글 000개");
+
+        lblNewLabel_1.setBounds(40, 80, 165, 38);
+
+        f.getContentPane().add(lblNewLabel_1);
+
+        
+
+        JButton btnNewButton = new JButton("최신순");
+
+        btnNewButton.setBounds(673, 99, 117, 38);
+
+        f.getContentPane().add(btnNewButton);
+
+        
+
+        JButton btnNewButton_1 = new JButton("추천순");
+
+        btnNewButton_1.setBounds(801, 99, 117, 38);
+
+        f.getContentPane().add(btnNewButton_1);
+
+        
+
+        textField = new JTextField();
+
+        
+
+        textField.setBounds(329, 415, 461, 160);
+
+        f.getContentPane().add(textField);
+
+        textField.setColumns(10);
+
+        
+
+        JLabel lblNewLabel_1_1 = new JLabel("닉네임");
+
+        lblNewLabel_1_1.setBounds(40, 159, 165, 38);
+
+        f.getContentPane().add(lblNewLabel_1_1);
+
+        
+
+        JLabel lblNewLabel_1_1_1 = new JLabel("날짜");
+
+        lblNewLabel_1_1_1.setBounds(234, 329, 82, 38);
+
+        f.getContentPane().add(lblNewLabel_1_1_1);
+
+        
+
+        JLabel like1 = new JLabel();
+
+        like1.setHorizontalAlignment(SwingConstants.CENTER);
+
+        like1.setBounds(720, 339, 29, 38);
+
+        f.getContentPane().add(like1);
+
+        
+
+        JButton like = new JButton("좋아요");
+
+        like.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                like_count++;
+
+                like1.setText(String.valueOf(like_count));
+
+            }
+
+        });
+
+        like.setBounds(599, 339, 117, 38);
+
+        f.getContentPane().add(like);
+
+        
+
+        JLabel hate1;
+
+        hate1 = new JLabel();
+
+        hate1.setHorizontalAlignment(SwingConstants.CENTER);
+
+        hate1.setBounds(890, 339, 29, 38);
+
+        f.getContentPane().add(hate1);
+
+        
+
+        JButton hate = new JButton("싫어요");
+
+        hate.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                hate_count++;
+
+                hate1.setText(String.valueOf(hate_count));
+
+            }
+
+        });
+
+        hate.setBounds(769, 339, 117, 38);
+
+        f.getContentPane().add(hate);
+
+        
+
+        
+
+        JLabel lblNewLabel_3 = new JLabel("댓글 내용");
+
+        lblNewLabel_3.setForeground(Color.BLACK);
+
+        lblNewLabel_3.setBackground(Color.WHITE);
+
+        lblNewLabel_3.setBounds(233, 159, 685, 147);
+
+        f.getContentPane().add(lblNewLabel_3);
+
+        
+
+        JLabel lblNewLabel_1_1_2 = new JLabel("본인 닉네임");
+
+        lblNewLabel_1_1_2.setBounds(40, 415, 165, 38);
+
+        f.getContentPane().add(lblNewLabel_1_1_2);
+
+        
+
+        JButton btnNewButton_4 = new JButton("댓글 등록");
+
+        btnNewButton_4.setBounds(801, 415, 117, 160);
+
+        f.getContentPane().add(btnNewButton_4);
+
+        
+
+        
+
+        f.setVisible(true);
+
+        
+
+        
+
+        
+
+    }
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package 프로젝트;
+
+​
+
+import java.awt.Color;
+
+import java.awt.event.ActionEvent;
+
+import java.awt.event.ActionListener;
+
+​
+
+import javax.swing.JButton;
+
+import javax.swing.JFrame;
+
+import javax.swing.JLabel;
+
+import javax.swing.JTextField;
+
+import javax.swing.SwingConstants;
+
+​
+
+public class Comment {
+
+    private static JTextField textField;
+
+    private static JLabel hate1;
+
+​
+
+    static int like_count = 0;
+
+    static int hate_count = 0;
+
+    
+
+    public static void main(String[] args) {
+
+        
+
+        JFrame f = new JFrame();
+
+        f.setSize(1000,800);
+
+        f.getContentPane().setLayout(null);
+
+        
+
+        JLabel lblNewLabel_1 = new JLabel("총 댓글 000개");
+
+        lblNewLabel_1.setBounds(40, 80, 165, 38);
+
+        f.getContentPane().add(lblNewLabel_1);
+
+        
+
+        JButton btnNewButton = new JButton("최신순");
+
+        btnNewButton.setBounds(673, 99, 117, 38);
+
+        f.getContentPane().add(btnNewButton);
+
+        
+
+        JButton btnNewButton_1 = new JButton("추천순");
+
+        btnNewButton_1.setBounds(801, 99, 117, 38);
+
+        f.getContentPane().add(btnNewButton_1);
+
+        
+
+        textField = new JTextField();
+
+        
+
+        textField.setBounds(329, 415, 461, 160);
+
+        f.getContentPane().add(textField);
+
+        textField.setColumns(10);
+
+        
+
+        JLabel lblNewLabel_1_1 = new JLabel("닉네임");
+
+        lblNewLabel_1_1.setBounds(40, 159, 165, 38);
+
+        f.getContentPane().add(lblNewLabel_1_1);
+
+        
+
+        JLabel lblNewLabel_1_1_1 = new JLabel("날짜");
+
+        lblNewLabel_1_1_1.setBounds(234, 329, 82, 38);
+
+        f.getContentPane().add(lblNewLabel_1_1_1);
+
+        
+
+        JLabel like1 = new JLabel();
+
+        like1.setHorizontalAlignment(SwingConstants.CENTER);
+
+        like1.setBounds(720, 339, 29, 38);
+
+        f.getContentPane().add(like1);
+
+        
+
+        JButton like = new JButton("좋아요");
+
+        like.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                like_count++;
+
+                like1.setText(String.valueOf(like_count));
+
+            }
+
+        });
+
+        like.setBounds(599, 339, 117, 38);
+
+        f.getContentPane().add(like);
+
+        
+
+        JLabel hate1;
+
+        hate1 = new JLabel();
+
+        hate1.setHorizontalAlignment(SwingConstants.CENTER);
+
+        hate1.setBounds(890, 339, 29, 38);
+
+        f.getContentPane().add(hate1);
+
+        
+
+        JButton hate = new JButton("싫어요");
+
+        hate.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                hate_count++;
+
+                hate1.setText(String.valueOf(hate_count));
+
+            }
+
+        });
+
+        hate.setBounds(769, 339, 117, 38);
+
+        f.getContentPane().add(hate);
+
+        
+
+        
+
+        JLabel lblNewLabel_3 = new JLabel("댓글 내용");
+
+        lblNewLabel_3.setForeground(Color.BLACK);
+
+        lblNewLabel_3.setBackground(Color.WHITE);
+
+        lblNewLabel_3.setBounds(233, 159, 685, 147);
+
+        f.getContentPane().add(lblNewLabel_3);
+
+        
+
+        JLabel lblNewLabel_1_1_2 = new JLabel("본인 닉네임");
+
+        lblNewLabel_1_1_2.setBounds(40, 415, 165, 38);
+
+        f.getContentPane().add(lblNewLabel_1_1_2);
+
+        
+
+        JButton btnNewButton_4 = new JButton("댓글 등록");
+
+        btnNewButton_4.setBounds(801, 415, 117, 160);
+
+        f.getContentPane().add(btnNewButton_4);
+
+        
+
+        
+
+        f.setVisible(true);
+
+        
+
+        
+
+        
+
+    }
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package db연결;
+
+​
+
+import javax.swing.JFrame;
+
+import javax.swing.JLabel;
+
+import javax.swing.JTextField;
+
+import java.awt.Font;
+
+import java.awt.Color;
+
+import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+
+import java.awt.event.ActionEvent;
+
+​
+
+public class 가입창 {
+
+    private static JTextField t1;
+
+    private static JTextField t2;
+
+    private static JTextField t3;
+
+    private static JTextField t4;
+
+​
+
+    
+
+    public static void main(String[] args) {
+
+         JFrame f = new JFrame();
+
+         f.getContentPane().setBackground(Color.GREEN);
+
+         f.setSize(573, 490);
+
+         f.getContentPane().setLayout(null);
+
+         
+
+         JLabel lblNewLabel = new JLabel("아이디");
+
+         lblNewLabel.setFont(new Font("굴림", Font.BOLD, 30));
+
+         lblNewLabel.setBounds(29, 32, 132, 49);
+
+         f.getContentPane().add(lblNewLabel);
+
+         
+
+         t1 = new JTextField();
+
+         t1.setBackground(Color.YELLOW);
+
+         t1.setFont(new Font("굴림", Font.BOLD, 30));
+
+         t1.setBounds(184, 32, 329, 49);
+
+         f.getContentPane().add(t1);
+
+         t1.setColumns(10);
+
+         
+
+         JLabel label = new JLabel("패스워드");
+
+         label.setFont(new Font("굴림", Font.BOLD, 30));
+
+         label.setBounds(29, 101, 132, 49);
+
+         f.getContentPane().add(label);
+
+         
+
+         t2 = new JTextField();
+
+         t2.setFont(new Font("굴림", Font.BOLD, 30));
+
+         t2.setColumns(10);
+
+         t2.setBackground(Color.YELLOW);
+
+         t2.setBounds(184, 101, 329, 49);
+
+         f.getContentPane().add(t2);
+
+         
+
+         JLabel label_1 = new JLabel("이름");
+
+         label_1.setFont(new Font("굴림", Font.BOLD, 30));
+
+         label_1.setBounds(29, 176, 132, 49);
+
+         f.getContentPane().add(label_1);
+
+         
+
+         t3 = new JTextField();
+
+         t3.setFont(new Font("굴림", Font.BOLD, 30));
+
+         t3.setColumns(10);
+
+         t3.setBackground(Color.YELLOW);
+
+         t3.setBounds(184, 176, 329, 49);
+
+         f.getContentPane().add(t3);
+
+         
+
+         JLabel label_2 = new JLabel("전화번호");
+
+         label_2.setFont(new Font("굴림", Font.BOLD, 30));
+
+         label_2.setBounds(29, 249, 132, 49);
+
+         f.getContentPane().add(label_2);
+
+         
+
+         t4 = new JTextField();
+
+         t4.setFont(new Font("굴림", Font.BOLD, 30));
+
+         t4.setColumns(10);
+
+         t4.setBackground(Color.YELLOW);
+
+         t4.setBounds(184, 249, 329, 49);
+
+         f.getContentPane().add(t4);
+
+         
+
+         JButton btnNewButton = new JButton("가입");
+
+         btnNewButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                String id = t1.getText();
+
+                String pw = t2.getText();
+
+                String name = t3.getText();
+
+                String tel = t4.getText();
+
+                
+
+                //1.가방을 만들자.
+
+                MemberDTO dto = new MemberDTO();
+
+                
+
+                //2.가방에 넣자.
+
+                dto.setId(id);
+
+                dto.setPw(pw);
+
+                dto.setName(name);
+
+                dto.setTel(tel);
+
+                
+
+                //3.전달
+
+                //4.가방에 꺼내자.
+
+                MemberDAO db = new MemberDAO();
+
+                db.insert(dto);
+
+            }
+
+         });
+
+         btnNewButton.setBackground(Color.RED);
+
+         btnNewButton.setFont(new Font("굴림", Font.BOLD, 35));
+
+         btnNewButton.setBounds(24, 337, 124, 85);
+
+         f.getContentPane().add(btnNewButton);
+
+         
+
+         JButton button = new JButton("검색");
+
+         button.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                String id = t1.getText();
+
+                //가방을 만들고,
+
+                MemberDTO dto = new MemberDTO();
+
+                //가방에 넣음.
+
+                dto.setId(id);
+
+                
+
+                //db처리 부품 복사해서 가지고 왔음.
+
+                MemberDAO dao = new MemberDAO();
+
+                //select기능 선택해서 호출.
+
+                dao.select(dto);                
+
+            }
+
+         });
+
+         button.setFont(new Font("굴림", Font.BOLD, 35));
+
+         button.setBackground(Color.RED);
+
+         button.setBounds(160, 337, 124, 85);
+
+         f.getContentPane().add(button);
+
+         
+
+         JButton button_1 = new JButton("수정");
+
+         button_1.setFont(new Font("굴림", Font.BOLD, 35));
+
+         button_1.setBackground(Color.RED);
+
+         button_1.setBounds(296, 337, 117, 85);
+
+         f.getContentPane().add(button_1);
+
+         
+
+         JButton button_2 = new JButton("탈퇴");
+
+         button_2.setFont(new Font("굴림", Font.BOLD, 40));
+
+         button_2.setBackground(Color.RED);
+
+         button_2.setBounds(425, 337, 120, 85);
+
+         f.getContentPane().add(button_2);
+
+         f.setVisible(true);
+
+    }
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package db연결;
+
+​
+
+import java.sql.DriverManager;
+
+import java.sql.PreparedStatement;
+
+import java.sql.ResultSet;
+
+​
+
+import javax.swing.JOptionPane;
+
+​
+
+import java.sql.Connection;
+
+​
+
+public class MemberDAO {
+
+    String url = "jdbc:mysql://localhost:3708/virus";
+
+    String user = "root";
+
+    String password = "1234";
+
+    
+
+    //4.검색을 할 예정. 
+
+        public MemberDTO select(MemberDTO dto) {
+
+            //매개변수(파라메터, parameter), 지역변수
+
+            System.out.println("회원가입 처리하다.");
+
+            try {
+
+                //1) 커넥터 설정
+
+                Class.forName("com.mysql.jdbc.Driver");
+
+                System.out.println("1. 커넥터 설정 ok..");
+
+                
+
+                //2) db연결
+
+                Connection con = DriverManager.getConnection(url, user, password);
+
+                System.out.println("2. db연결 ok..");
+
+                
+
+                //3) sql문 결정
+
+                
+
+                String sql = "select * from member where id = ?";
+
+                PreparedStatement ps = con.prepareStatement(sql);
+
+                ps.setString(1, dto.getId());
+
+                System.out.println("3. sql문 결정 ok..");
+
+                
+
+                //4) sql문 전송
+
+                ResultSet rs = ps.executeQuery();
+
+                System.out.println("4. sql문 전송 ok..");
+
+                if(rs.next()) { //검색 결과가 있는지 체크해주는 메서드
+
+                    System.out.println("검색 결과가 있어요.!!");
+
+                }
+
+                
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+
+            }
+
+            return null;
+
+        }
+
+    
+
+    public void update() {
+
+        System.out.println("회원수정 처리하다.");
+
+        try {
+
+            //1) 커넥터 설정
+
+            Class.forName("com.mysql.jdbc.Driver");
+
+            System.out.println("1. 커넥터 설정 ok..");
+
+            
+
+            //2) db연결
+
+            Connection con = DriverManager.getConnection(url, user, password);
+
+            System.out.println("2. db연결 ok..");
+
+            
+
+            //3) sql문 결정
+
+            String id = JOptionPane.showInputDialog("삽입할 id입력");
+
+            String tel = JOptionPane.showInputDialog("삽입할 tel입력");
+
+            
+
+            String sql = "update member set tel = ? where id = ?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, tel);
+
+            ps.setString(2, id);
+
+            
+
+            System.out.println("3. sql문 결정 ok..");
+
+            
+
+            //4) sql문 전송
+
+            ps.executeUpdate();
+
+            System.out.println("4. sql문 전송 ok..");
+
+            
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+    
+
+    
+
+//1. 회원가입
+
+    public void insert(MemberDTO dto) {
+
+        //매개변수(파라메터, parameter), 지역변수
+
+        System.out.println("회원가입 처리하다.");
+
+        try {
+
+            //1) 커넥터 설정
+
+            Class.forName("com.mysql.jdbc.Driver");
+
+            System.out.println("1. 커넥터 설정 ok..");
+
+            
+
+            //2) db연결
+
+            Connection con = DriverManager.getConnection(url, user, password);
+
+            System.out.println("2. db연결 ok..");
+
+            
+
+            //3) sql문 결정
+
+            
+
+            String sql = "insert into member values (?, ?, ?, ?)";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, dto.getId());
+
+            ps.setString(2, dto.getPw());
+
+            ps.setString(3, dto.getName());
+
+            ps.setString(4, dto.getTel());
+
+            
+
+            System.out.println("3. sql문 결정 ok..");
+
+            
+
+            //4) sql문 전송
+
+            ps.executeUpdate();
+
+            System.out.println("4. sql문 전송 ok..");
+
+            
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+    
+
+//2. db연결
+
+    public void connect() {
+
+        System.out.println("DB연결 처리하다.");
+
+        try {
+
+            //1) 커넥터 설정
+
+            Class.forName("com.mysql.jdbc.Driver");
+
+            System.out.println("1. 커넥터 설정 ok..");
+
+            
+
+            //2) db연결
+
+            DriverManager.getConnection(url, user, password);
+
+            System.out.println("2. db연결 ok..");
+
+            
+
+            //3) sql문 결정
+
+            //4) sql문 전송
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+//3. 회원탈퇴
+
+    public void delete() {
+
+        System.out.println("회원탈퇴 처리하다.");
+
+        try {
+
+            //1) 커넥터 설정
+
+            Class.forName("com.mysql.jdbc.Driver");
+
+            System.out.println("1. 커넥터 설정 ok..");
+
+            
+
+            //2) db연결
+
+            Connection con = DriverManager.getConnection(url, user, password);
+
+            System.out.println("2. db연결 ok..");
+
+            
+
+            //connect();
+
+            String id = JOptionPane.showInputDialog("삭제하고 싶은 id입력");
+
+            //3) sql문 결정
+
+            String sql = "delete from member where id = ? ";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, id);
+
+            
+
+            System.out.println("3. sql문 결정 ok..");
+
+            
+
+            //4) sql문 전송
+
+            ps.executeUpdate();
+
+            System.out.println("4. sql문 전송 ok..");
+
+            
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+    
+
+    
+
+    
+
+    
+
+    
+
+}
+
+​
+
+​
+
+​
+
+​
+
+​
+
+​
+
+package db연결;
+
+​
+
+public class MemberDTO {
+
+    String id;
+
+    String pw;
+
+    String name;
+
+    String tel;
+
+    
+
+    
+
+    public String getId() {
+
+        return id;
+
+    }
+
+    public void setId(String id) {
+
+        this.id = id;
+
+    }
+
+    public String getPw() {
+
+        return pw;
+
+    }
+
+    public void setPw(String pw) {
+
+        this.pw = pw;
+
+    }
+
+    public String getName() {
+
+        return name;
+
+    }
+
+    public void setName(String name) {
+
+        this.name = name;
+
+    }
+
+    public String getTel() {
+
+        return tel;
+
+    }
+
+    public void setTel(String tel) {
+
+        this.tel = tel;
+
+    }
+
+    
+
+    
+
+    
+
+}
