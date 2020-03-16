@@ -1,0 +1,542 @@
+﻿
+
+package 상속재사용;
+
+
+public class Person { //사람
+
+//성질, 동작 (변수와 메소드)
+
+String name;
+
+int age;
+
+
+public void talk() {
+
+System.out.println("말을 하다.");
+
+}
+
+
+public void think() {
+
+System.out.println("생각하다.");
+
+}
+
+
+@Override
+
+public String toString() {
+
+return "Person [name=" + name + ", age=" + age + "]";
+
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+package 상속재사용;
+
+
+public class Man extends Person {
+
+//성질(2), 동작(2)
+
+int power;
+
+
+public void wild() {
+
+System.out.println("거칠다.");
+
+}
+
+
+@Override
+
+public String toString() {
+
+return "Man [power=" + power + ", name=" + name + ", age=" + age + "]";
+
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+package 상속재사용;
+
+
+public class SuperMan extends Man { //public final class라고 쓰면 종단 클래스가 됨. (더 이상 상속이 불가능)
+
+//성질(3), 동작(3)
+
+
+String cloth;
+
+
+public void fly() {
+
+System.out.println("하늘을 날다.");
+
+}
+
+
+@Override
+
+public String toString() {
+
+return "SuperMan [cloth=" + cloth + ", power=" + power + ", name=" + name + ", age=" + age + "]";
+
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+package 상속재사용;
+
+
+public class SuperManUser {
+
+
+public static void main(String[] args) {
+
+SuperMan s = new SuperMan();
+
+s.cloth = "빨강"; //superman
+
+s.power = 100; //man
+
+s.name = "클라크"; //person
+
+s.age = 300; //person
+
+
+System.out.println(s); //참조형은 원래 주소가 찍혀야하지만 toString을 부품에 설정해놔서 자동으로 toString 메소드가 호출됨.
+
+
+s.fly(); //superman
+
+s.wild(); //man
+
+s.talk(); //person
+
+s.think(); //person
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+package 상속재사용;
+
+
+public class Woman extends Person {
+
+int eq;
+
+
+public void soft() {
+
+System.out.println("부드럽다.");
+
+}
+
+}
+
+
+
+
+
+
+
+package 상속재사용;
+
+
+public class WonderWoman extends Woman {
+
+String weapon;
+
+
+public void rope() {
+
+System.out.println("밧줄을 사용하다.");
+
+}
+
+
+@Override
+
+public String toString() {
+
+return "WonderWoman [weapon=" + weapon + ", eq=" + eq + ", name=" + name + ", age=" + age + "]";
+
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+package 상속재사용;
+
+
+public class WonderWomanUser {
+
+
+public static void main(String[] args) {
+
+WonderWoman w = new WonderWoman();
+
+
+w.age = 20;
+
+w.eq = 20;
+
+w.name = "원더";
+
+w.weapon = "rope";
+
+
+System.out.println(w);
+
+
+w.rope();
+
+
+}
+
+
+}
+
+package 상속재사용;
+
+
+public class Bank {
+
+public double getInterestRate() {
+
+return 0;
+
+}
+
+
+double interest;
+
+
+}
+
+
+
+
+
+
+package 상속재사용;
+
+
+public class GoodBank extends Bank {
+
+
+@Override //표시(Annotation), 생략가능
+
+public double getInterestRate() {
+
+return 3 ;
+
+}
+
+
+double interest;
+
+
+@Override
+
+public String toString() {
+
+return "GoodBank [interest=" + interest + "]";
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+package 상속재사용;
+
+
+public class BadBank extends Bank {
+
+//ljy910604@naver.com //at ~에
+
+
+@Override //표시(Annotation), 생략가능
+
+public double getInterestRate() {
+
+return 10 ;
+
+}
+
+
+double interest;
+
+
+@Override
+
+public String toString() {
+
+return "BadBank [interest=" + interest + "]";
+
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+package 상속재사용;
+
+
+public class NormalBank extends Bank {
+
+
+@Override //표시(Annotation), 생략가능
+
+public double getInterestRate() {
+
+return 5 ;
+
+}
+
+
+double interest;
+
+
+@Override
+
+public String toString() {
+
+return "NormalBank [interest=" + interest + "]";
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+package 상속재사용;
+
+
+public class BankUser {
+
+
+public static void main(String[] args) {
+
+BadBank b = new BadBank();
+
+NormalBank n = new NormalBank();
+
+GoodBank g = new GoodBank();
+
+
+System.out.println("BadBank rates: " + b.getInterestRate());
+
+System.out.println("NomalBank rates: " + n.getInterestRate());
+
+System.out.println("GoodBank rates: " + g.getInterestRate());
+
+
+b.interest = 10.0;
+
+n.interest = 5.0;
+
+g.interest = 3.0;
+
+
+System.out.println(b);
+
+System.out.println(n);
+
+System.out.println(g);
+
+}
+
+
+}
+
+
+
+
+
+
+
+package 상속재사용;
+
+
+public class Student {
+
+public void study() {
+
+System.out.println("ㅇㅇ");
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+package 상속재사용;
+
+
+public class Element extends Student {
+
+public void study() {
+
+System.out.println("줄넘기 공부하다.");
+
+}
+
+}
+
+
+
+
+
+package 상속재사용;
+
+
+public class Middle extends Student {
+
+public void study() {
+
+System.out.println("단소 공부하다.");
+
+}
+
+}
+
+
+
+
+
+package 상속재사용;
+
+
+public class High extends Student {
+
+//부모로부터 상속받은 것들 중에 좀 더 specific한 것으로 만들고 싶은 것이 있으면, 덮어써라!
+
+//Override(오버라이드, 재정의)
+
+
+public void study() {
+
+System.out.println("미적분 공부하다.");
+
+}
+
+}
+
+
+
+
+
+
+package 상속재사용;
+
+
+public class StudentUser {
+
+
+public static void main(String[] args) {
+
+Element e = new Element();
+
+Middle m = new Middle();
+
+High h = new High();
+
+University u = new University();
+
+
+e.study();
+
+m.study();
+
+h.study();
+
+u.study();
+
+
+}
+
+
+}
+
+
+
+﻿
